@@ -11,4 +11,16 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    server: {
+        https: true,
+    },
+    build: {
+        manifest: true,
+        rollupOptions: {
+            input: {
+                welcome: 'resources/js/welcome.js',
+                welcomeCss: 'resources/css/welcome.css',
+            }
+        }
+    }
 });

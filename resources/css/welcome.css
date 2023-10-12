@@ -1,0 +1,19 @@
+@import "app.css";
+* {
+  font-family: "arial unicode ms", sans-serif;
+}
+
+main {
+  background-image: url("/storage/data/topImgBack.jpg");
+  background-color: rgba(255, 255, 255, 0.5);
+  background-blend-mode: lighten;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#container {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/*# sourceMappingURL=welcome.css.map */
