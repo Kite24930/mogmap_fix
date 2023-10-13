@@ -1,5 +1,18 @@
 @import "app.css";
+@import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Noto+Sans+JP:wght@400;700;900&display=swap');
+// 基本フォント font-family: 'Noto Sans JP', sans-serif;
+// 日本語ディスプレイフォント font-family: 'Darumadrop One', cursive;
 
 * {
-    font-family: 'arial unicode ms', sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+root {
+    --primary-color: #ff0000;
+    --secondary-color: #00ff00;
+    --tertiary-color: #0000ff;
+}
+
+.ja-display-font {
+    font-family: 'Darumadrop One', cursive;
 }

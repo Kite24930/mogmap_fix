@@ -1,1 +1,1 @@
-import './common.js';
+import './app.js';

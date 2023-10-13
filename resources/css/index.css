@@ -1,0 +1,162 @@
+@import "app.css";
+@import url("https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Noto+Sans+JP:wght@400;700;900&display=swap");
+* {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+root {
+  --primary-color: #ff0000;
+  --secondary-color: #00ff00;
+  --tertiary-color: #0000ff;
+}
+
+.ja-display-font {
+  font-family: "Darumadrop One", cursive;
+}
+
+#loading {
+  width: 100dvw;
+  height: 100dvh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(100, 100, 100, 0.5);
+  transition: all 0.5s ease;
+}
+#loading .wrapper {
+  width: 200px;
+  height: 60px;
+  position: relative;
+}
+#loading .wrapper .loading-circle {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: #fff;
+  left: 15%;
+  transform-origin: 50%;
+  animation: circle 0.5s alternate infinite ease;
+}
+#loading .wrapper .loading-circle:nth-child(2) {
+  left: 45%;
+  animation-delay: 0.2s;
+}
+#loading .wrapper .loading-circle:nth-child(3) {
+  left: auto;
+  right: 15%;
+  animation-delay: 0.3s;
+}
+#loading .wrapper .loading-shadow {
+  width: 20px;
+  height: 4px;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 62px;
+  border-radius: 50%;
+  left: 15%;
+  transform-origin: 50%;
+  filter: blur(1px);
+  animation: shadow 0.5s alternate infinite ease;
+  z-index: -1;
+}
+#loading .wrapper .loading-shadow:nth-child(4) {
+  left: 45%;
+  animation-delay: 0.2s;
+}
+#loading .wrapper .loading-shadow:nth-child(5) {
+  left: auto;
+  right: 15%;
+  animation-delay: 0.3s;
+}
+#loading .wrapper .text {
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-family: "Darumadrop One", cursive;
+  font-size: 2rem;
+}
+#loading .wrapper .text .dot:nth-child(1) {
+  animation: dot alternate 0.5s infinite ease;
+}
+#loading .wrapper .text .dot:nth-child(2) {
+  animation: dot alternate 0.5s infinite ease;
+  animation-delay: 0.2s;
+}
+#loading .wrapper .text .dot:nth-child(3) {
+  animation: dot alternate 0.5s infinite ease;
+  animation-delay: 0.4s;
+}
+
+@keyframes circle {
+  0% {
+    top: 60px;
+    height: 5px;
+    border-radius: 50px 50px 25px 25px;
+    transform: scaleX(1.7);
+  }
+  40% {
+    height: 20px;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+  100% {
+    top: 0;
+  }
+}
+@keyframes shadow {
+  0% {
+    transform: scaleX(1.5);
+  }
+  40% {
+    transform: scaleX(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scaleX(0.2);
+    opacity: 0.4;
+  }
+}
+@keyframes dot {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+main.spring {
+  background: url("/storage/data/bg_spring_ground.png"), url("/storage/data/bg_spring_sky.png"), #D0EBEF;
+  background-position: center bottom, center top, center top;
+  background-size: 100% auto, 100% auto, cover;
+  background-attachment: fixed, fixed, fixed;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+}
+main.summer {
+  background: url("/storage/data/bg_summer_ground.png"), url("/storage/data/bg_summer_sky.png"), #fff;
+  background-position: center bottom, center top, center top;
+  background-size: 100% auto, 100% auto, cover;
+  background-attachment: fixed, fixed, fixed;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+}
+main.autumn {
+  background: url("/storage/data/bg_autumn_ground.png"), url("/storage/data/bg_autumn_sky.png"), #C1D9E5;
+  background-position: center bottom, center top, center top;
+  background-size: 100% auto, 100% auto, cover;
+  background-attachment: fixed, fixed, fixed;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+}
+main.winter {
+  background: url("/storage/data/bg_winter_ground.png"), url("/storage/data/bg_winter_sky.png"), #9FC6D3;
+  background-position: center bottom, center top, center top;
+  background-size: 100% auto, 100% auto, cover;
+  background-attachment: fixed, fixed, fixed;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+}
+
+/*# sourceMappingURL=index.css.map */

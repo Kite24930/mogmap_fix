@@ -20,6 +20,8 @@ export default defineConfig({
             input: {
                 welcome: 'resources/js/welcome.js',
                 welcomeCss: 'resources/css/welcome.css',
+                index: 'resources/js/index.js',
+                indexCss: 'resources/css/index.css',
             }
         }
     }
