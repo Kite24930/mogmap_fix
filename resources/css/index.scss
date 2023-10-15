@@ -151,3 +151,28 @@ main {
         background-repeat: no-repeat, no-repeat, no-repeat;
     }
 }
+
+.tab-btn {
+    background-color: lightgoldenrodyellow;
+    &.active {
+        i {
+            color: white;
+        }
+        background-color: goldenrod;
+        color: white;
+    }
+}
+
+#map {
+    img:not(.map-info img) {
+        border-radius: 0.5rem;
+        object-fit: cover;
+    }
+    .gm-style-iw, .gm-style-iw-c, .gm-style-iw-d {
+        max-width: none!important;
+        max-height: calc(60vh - 150px)!important;
+        @media (min-width: 768px) {
+            max-height: calc(600px - 150px)!important;
+        }
+    }
+}

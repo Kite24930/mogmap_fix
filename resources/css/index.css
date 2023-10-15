@@ -1,7 +1,9 @@
+@import "bootstrap-icons/font/bootstrap-icons.min.css";
 @import "app.css";
 @import url("https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Noto+Sans+JP:wght@400;700;900&display=swap");
 * {
   font-family: "Noto Sans JP", sans-serif;
+  color: #2d3748;
 }
 
 root {
@@ -157,6 +159,31 @@ main.winter {
   background-size: 100% auto, 100% auto, cover;
   background-attachment: fixed, fixed, fixed;
   background-repeat: no-repeat, no-repeat, no-repeat;
+}
+
+.tab-btn {
+  background-color: lightgoldenrodyellow;
+}
+.tab-btn.active {
+  background-color: goldenrod;
+  color: white;
+}
+.tab-btn.active i {
+  color: white;
+}
+
+#map img:not(.map-info img) {
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+#map .gm-style-iw, #map .gm-style-iw-c, #map .gm-style-iw-d {
+  max-width: none !important;
+  max-height: calc(60vh - 150px) !important;
+}
+@media (min-width: 768px) {
+  #map .gm-style-iw, #map .gm-style-iw-c, #map .gm-style-iw-d {
+    max-height: 450px !important;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

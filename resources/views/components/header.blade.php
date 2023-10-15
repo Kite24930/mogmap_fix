@@ -1,10 +1,10 @@
-<header class="w-full h-20 fixed top-0 left-0 flex justify-center items-center">
+<header class="w-full md:w-auto h-20 md:h-auto fixed top-0 left-0 flex justify-center items-center z-50">
     <div id="topHeader" class="w-full max-w-2xl flex flex-wrap items-center justify-between p-4 md:hidden">
-        <a href="/" class="h-16 p-2 bg-white rounded-lg flex justify-center items-end gap-4">
+        <a href="/" class="h-16 p-2 bg-white rounded-lg flex justify-center items-end gap-4 relative z-50">
             <img src="{{ asset('storage/data/mogmap_icon.png') }}" alt="icon" class="object-contain h-12">
             <img src="{{ asset('storage/data/mogmap_logo.png') }}" alt="mogmap" class="object-contain h-8 mb-1">
         </a>
-        <div class="flex-wrap items-center">
+        <div class="flex-wrap items-center relative z-50">
             <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 bg-white" aria-controls="mega-menu" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
