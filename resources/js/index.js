@@ -90,9 +90,13 @@ function setMarkers(targetDate) {
             shopName.textContent = set_up.shop_name;
             let openTime = document.createElement('p');
             openTime.classList.add('map-info-open-time', 'text-sm');
-            const open = set_up.start_time.split(':');
-            const close = set_up.end_time.split(':');
-            openTime.textContent = Number(open[0]) + ':' + open[1] + ' ~ ' + Number(close[0]) + ':' + close[1];
+            if (set_up.start_time !== null && set_up.end_time !== null) {
+                const open = set_up.start_time.split(':');
+                const close = set_up.end_time.split(':');
+                openTime.textContent = Number(open[0]) + ':' + open[1] + ' ~ ' + Number(close[0]) + ':' + close[1];
+            } else {
+                openTime.textContent = '時間未定';
+            }
             let comment = document.createElement('p');
             comment.classList.add('map-info-comment', 'text-xs', 'border', 'border-cyan-400', 'px-1', 'rounded');
             comment.textContent = set_up.comment;
@@ -174,9 +178,13 @@ function setMarkers(targetDate) {
             name.textContent = set_up.shop_name;
             let openTime = document.createElement('p');
             openTime.classList.add('map-info-open-time', 'text-sm');
-            const open = set_up.start_time.split(':');
-            const close = set_up.end_time.split(':');
-            openTime.textContent = Number(open[0]) + ':' + open[1] + ' ~ ' + Number(close[0]) + ':' + close[1];
+            if (set_up.start_time !== null && set_up.end_time !== null) {
+                const open = set_up.start_time.split(':');
+                const close = set_up.end_time.split(':');
+                openTime.textContent = Number(open[0]) + ':' + open[1] + ' ~ ' + Number(close[0]) + ':' + close[1];
+            } else {
+                openTime.textContent = '時間未定';
+            }
             let comment = document.createElement('p');
             comment.classList.add('map-info-comment', 'text-xs', 'border', 'border-cyan-400', 'px-1', 'rounded');
             comment.textContent = set_up.comment;
@@ -256,9 +264,13 @@ function setMarkers(targetDate) {
         address.textContent = set_up.address;
         let openTime = document.createElement('p');
         openTime.classList.add('map-info-open-time', 'text-sm');
-        const open = set_up.start_time.split(':');
-        const close = set_up.end_time.split(':');
-        openTime.textContent = Number(open[0]) + ':' + open[1] + ' ~ ' + Number(close[0]) + ':' + close[1];
+        if (set_up.start_time !== null && set_up.end_time !== null) {
+            const open = set_up.start_time.split(':');
+            const close = set_up.end_time.split(':');
+            openTime.textContent = Number(open[0]) + ':' + open[1] + ' ~ ' + Number(close[0]) + ':' + close[1];
+        } else {
+            openTime.textContent = '時間未定';
+        }
         let comment = document.createElement('p');
         comment.classList.add('map-info-comment', 'text-xs', 'border', 'border-cyan-400', 'px-1', 'rounded');
         comment.textContent = set_up.comment;
@@ -404,9 +416,13 @@ function initList(targetDate) {
             eventShopName.textContent = set_up.shop_name;
             let eventOpenTime = document.createElement('p');
             eventOpenTime.classList.add('event-open-time', 'text-sm');
-            const open = set_up.start_time.split(':');
-            const close = set_up.end_time.split(':');
-            eventOpenTime.textContent = Number(open[0]) + ':' + open[1] + ' ~ ' + Number(close[0]) + ':' + close[1];
+            if (set_up.start_time !== null && set_up.end_time !== null) {
+                const open = set_up.start_time.split(':');
+                const close = set_up.end_time.split(':');
+                eventOpenTime.textContent = Number(open[0]) + ':' + open[1] + ' ~ ' + Number(close[0]) + ':' + close[1];
+            } else {
+                eventOpenTime.textContent = '時間未定';
+            }
             let comment = document.createElement('p');
             comment.classList.add('event-comment', 'text-xs', 'border', 'border-cyan-400', 'px-1', 'rounded');
             comment.textContent = set_up.comment;
@@ -457,9 +473,13 @@ function initList(targetDate) {
         address.textContent = set_up.address;
         let openTime = document.createElement('p');
         openTime.classList.add('shop-open-time', 'text-sm');
-        const open = set_up.start_time.split(':');
-        const close = set_up.end_time.split(':');
-        openTime.textContent = Number(open[0]) + ':' + open[1] + ' ~ ' + Number(close[0]) + ':' + close[1];
+        if (set_up.start_time !== null && set_up.end_time !== null) {
+            const open = set_up.start_time.split(':');
+            const close = set_up.end_time.split(':');
+            openTime.textContent = Number(open[0]) + ':' + open[1] + ' ~ ' + Number(close[0]) + ':' + close[1];
+        } else {
+            openTime.textContent = '時間未定';
+        }
         let comment = document.createElement('p');
         comment.classList.add('shop-comment', 'text-xs', 'border', 'border-cyan-400', 'px-1', 'rounded');
         comment.textContent = set_up.comment;
