@@ -6,6 +6,7 @@ import 'flowbite';
 import { Calendar } from "@fullcalendar/core";
 import interactionPlugin from "@fullcalendar/interaction";
 import multiMonthPlugin from "@fullcalendar/multimonth";
+import SimpleBar from "simplebar";
 
 window.addEventListener('load', init);
 let map, infoWindow, markerClusterer;
@@ -92,6 +93,9 @@ function setMarkers(targetDate) {
             const open = set_up.start_time.split(':');
             const close = set_up.end_time.split(':');
             openTime.textContent = Number(open[0]) + ':' + open[1] + ' ~ ' + Number(close[0]) + ':' + close[1];
+            let comment = document.createElement('p');
+            comment.classList.add('map-info-comment', 'text-xs', 'border', 'border-cyan-400', 'px-1', 'rounded');
+            comment.textContent = set_up.comment;
             let link = document.createElement('a');
             link.href = 'shop/' + set_up.id;
             link.classList.add('map-info-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2');
@@ -102,6 +106,7 @@ function setMarkers(targetDate) {
             instagram.textContent = 'Instagram';
             shop.appendChild(shopName);
             shop.appendChild(openTime);
+            if (set_up.comment !== null && set_up.comment !== '') shop.appendChild(comment);
             shop.appendChild(link);
             shop.appendChild(instagram);
             shopdiv.appendChild(shop);
@@ -172,6 +177,9 @@ function setMarkers(targetDate) {
             const open = set_up.start_time.split(':');
             const close = set_up.end_time.split(':');
             openTime.textContent = Number(open[0]) + ':' + open[1] + ' ~ ' + Number(close[0]) + ':' + close[1];
+            let comment = document.createElement('p');
+            comment.classList.add('map-info-comment', 'text-xs', 'border', 'border-cyan-400', 'px-1', 'rounded');
+            comment.textContent = set_up.comment;
             let link = document.createElement('a');
             link.href = 'shop/' + set_up.id;
             link.classList.add('map-info-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2');
@@ -182,6 +190,7 @@ function setMarkers(targetDate) {
             instagram.textContent = 'Instagram';
             shop.appendChild(name);
             shop.appendChild(openTime);
+            if (set_up.comment !== null && set_up.comment !== '') shop.appendChild(comment);
             shop.appendChild(link);
             shop.appendChild(instagram);
             shopdiv.appendChild(shop);
@@ -250,6 +259,9 @@ function setMarkers(targetDate) {
         const open = set_up.start_time.split(':');
         const close = set_up.end_time.split(':');
         openTime.textContent = Number(open[0]) + ':' + open[1] + ' ~ ' + Number(close[0]) + ':' + close[1];
+        let comment = document.createElement('p');
+        comment.classList.add('map-info-comment', 'text-xs', 'border', 'border-cyan-400', 'px-1', 'rounded');
+        comment.textContent = set_up.comment;
         let link = document.createElement('a');
         link.href = 'shop/' + set_up.id;
         link.classList.add('map-info-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2');
@@ -267,6 +279,7 @@ function setMarkers(targetDate) {
         info.appendChild(place);
         info.appendChild(address);
         info.appendChild(openTime);
+        if (set_up.comment !== null && set_up.comment !== '') info.appendChild(comment);
         info.appendChild(link);
         info.appendChild(instagram);
         info.appendChild(mapOpen);
@@ -360,7 +373,7 @@ function initList(targetDate) {
         return event.event_date === targetDate;
     }).forEach((event) => {
         let eventContainer = document.createElement('div');
-        eventContainer.classList.add('event-container', 'flex', 'flex-col', 'items-center', 'border', 'border-gray-300', 'rounded', 'p-2', 'w-full', 'bg-pink-100');
+        eventContainer.classList.add('event-container', 'flex', 'flex-col', 'items-center', 'border', 'border-gray-300', 'rounded', 'p-2', 'w-full', 'bg-pink-100', 'mb-2');
         let eventInfo = document.createElement('div');
         eventInfo.classList.add('event-info', 'flex', 'flex-col', 'items-center', 'w-full');
         let eventName = document.createElement('p');
@@ -383,7 +396,9 @@ function initList(targetDate) {
         }).forEach((set_up) => {
             eventNum.push(Number(set_up.event_place_num));
             let eventShop = document.createElement('div');
-            eventShop.classList.add('event-shop-item', 'flex', 'flex-col', 'items-center', 'border', 'border-gray-300', 'rounded', 'p-2', 'w-full', 'bg-white');
+            eventShop.classList.add('event-shop-item', 'flex', 'flex-col', 'md:flex-row', 'items-center', 'border', 'border-gray-300', 'rounded', 'p-2', 'w-full', 'bg-white');
+            let eventShopDetail = document.createElement('div');
+            eventShopDetail.classList.add('event-shop-detail', 'flex', 'flex-col', 'items-center', 'w-full');
             let eventShopName = document.createElement('p');
             eventShopName.classList.add('event-shop-name', 'text-lg', 'font-bold');
             eventShopName.textContent = set_up.shop_name;
@@ -392,6 +407,11 @@ function initList(targetDate) {
             const open = set_up.start_time.split(':');
             const close = set_up.end_time.split(':');
             eventOpenTime.textContent = Number(open[0]) + ':' + open[1] + ' ~ ' + Number(close[0]) + ':' + close[1];
+            let comment = document.createElement('p');
+            comment.classList.add('event-comment', 'text-xs', 'border', 'border-cyan-400', 'px-1', 'rounded');
+            comment.textContent = set_up.comment;
+            let eventLinkContainer = document.createElement('div');
+            eventLinkContainer.classList.add('event-link-container', 'flex', 'flex-col', 'items-center', 'w-full');
             let eventLink = document.createElement('a');
             eventLink.href = 'shop/' + set_up.id;
             eventLink.classList.add('event-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2');
@@ -400,10 +420,13 @@ function initList(targetDate) {
             eventInstagram.href = 'https://www.instagram.com/' + set_up.instagram + '/';
             eventInstagram.classList.add('event-instagram', 'text-sm', 'bg-pink-100', 'text-pink-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-pink-400', 'mb-2');
             eventInstagram.textContent = 'Instagram';
-            eventShop.appendChild(eventShopName);
-            eventShop.appendChild(eventOpenTime);
-            eventShop.appendChild(eventLink);
-            eventShop.appendChild(eventInstagram);
+            eventShopDetail.appendChild(eventShopName);
+            eventShopDetail.appendChild(eventOpenTime);
+            if (set_up.comment !== null && set_up.comment !== '') eventShopDetail.appendChild(comment);
+            eventLinkContainer.appendChild(eventLink);
+            eventLinkContainer.appendChild(eventInstagram);
+            eventShop.appendChild(eventShopDetail);
+            eventShop.appendChild(eventLinkContainer);
             eventShopdiv.appendChild(eventShop);
         });
         eventInfo.appendChild(eventName);
@@ -418,9 +441,11 @@ function initList(targetDate) {
         return set_up.date === targetDate && set_up.event_id === null && eventNum.includes(Number(set_up.place_id)) === false;
     }).forEach((set_up) => {
         let container = document.createElement('div');
-        container.classList.add('shop-container', 'flex', 'flex-col', 'items-center', 'border', 'border-gray-300', 'rounded', 'p-2', 'w-full');
+        container.classList.add('shop-container', 'flex', 'flex-col', 'items-center', 'border', 'border-gray-300', 'rounded', 'p-2', 'w-full', 'mb-2');
         let info = document.createElement('div');
-        info.classList.add('shop-info', 'flex', 'flex-col', 'items-center', 'w-full');
+        info.classList.add('shop-info', 'flex', 'flex-col', 'md:flex-row', 'items-center', 'w-full');
+        let shopDetail = document.createElement('div');
+        shopDetail.classList.add('shop-detail', 'flex', 'flex-col', 'items-center', 'w-full');
         let name = document.createElement('p');
         name.classList.add('shop-name', 'text-lg', 'font-bold');
         name.textContent = set_up.shop_name;
@@ -435,6 +460,11 @@ function initList(targetDate) {
         const open = set_up.start_time.split(':');
         const close = set_up.end_time.split(':');
         openTime.textContent = Number(open[0]) + ':' + open[1] + ' ~ ' + Number(close[0]) + ':' + close[1];
+        let comment = document.createElement('p');
+        comment.classList.add('shop-comment', 'text-xs', 'border', 'border-cyan-400', 'px-1', 'rounded');
+        comment.textContent = set_up.comment;
+        let linkContainer = document.createElement('div');
+        linkContainer.classList.add('shop-link-container', 'flex', 'flex-col', 'items-center', 'w-full');
         let link = document.createElement('a');
         link.href = 'shop/' + set_up.id;
         link.classList.add('shop-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2');
@@ -445,18 +475,23 @@ function initList(targetDate) {
         instagram.textContent = 'Instagram';
         let mapOpen = document.createElement('a');
         mapOpen.href = 'https://maps.apple.com/?q=' + set_up.lat + ',' + set_up.lng + '&z=16&t=satellite';
-        mapOpen.classList.add('map-open', 'text-sm', 'bg-green-100', 'text-green-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-green-400');
+        mapOpen.classList.add('map-open', 'text-sm', 'bg-green-100', 'text-green-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-green-400', 'md-2');
         mapOpen.textContent = 'マップアプリで開く';
-        info.appendChild(name);
-        info.appendChild(place);
-        info.appendChild(address);
-        info.appendChild(openTime);
-        info.appendChild(link);
-        info.appendChild(instagram);
-        info.appendChild(mapOpen);
+        shopDetail.appendChild(name);
+        shopDetail.appendChild(place);
+        shopDetail.appendChild(address);
+        shopDetail.appendChild(openTime);
+        if (set_up.comment !== null && set_up.comment !== '') shopDetail.appendChild(comment);
+        linkContainer.appendChild(link);
+        linkContainer.appendChild(instagram);
+        linkContainer.appendChild(mapOpen);
+        info.appendChild(shopDetail);
+        info.appendChild(linkContainer);
         container.appendChild(info);
         list.appendChild(container);
     });
+    const listBar = new SimpleBar(document.getElementById('list'), { autoHide: false });
+    listBar.recalculate();
 }
 
 function initCalendar() {

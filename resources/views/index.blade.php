@@ -32,7 +32,7 @@
                         <div id="map" class="w-full h-full rounded-lg relative z-30">
 
                         </div>
-                        <div id="list" class="w-full h-full rounded-lg relative z-30 flex flex-col gap-2 p-2 border border-gray-400 overflow-auto">
+                        <div id="list" class="w-full h-full rounded-lg relative z-30 flex flex-col flex-nowrap gap-2 p-2 border border-gray-400 overflow-auto" data-simplebar>
 
                         </div>
                     </div>
@@ -43,7 +43,7 @@
             </div>
         </div>
     </main>
-    <div class="hidden bg-yellow-100 text-yellow-800 border-yellow-300 bg-green-100 text-green-800 border-green-400 bg-pink-100 border-pink-400 text-pink-800 px-2.5 py-0.5 my-2 mb-2 pb-3 pr-3 md:pb-0 md:pr-0 text-gray-500 shadow bottom-4 right-4 gap-4 items-start justify-between ml-auto -mx-1.5 -my-1.5 text-gray-400 hover:text-gray-900 focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 top-16 left-1/4 -translate-x-1/2 text-yellow-300 bg-pink-100"></div>
+    <div class="hidden bg-yellow-100 text-yellow-800 border-yellow-300 bg-green-100 text-green-800 border-green-400 bg-pink-100 border-pink-400 text-pink-800 px-2.5 py-0.5 my-2 mb-2 pb-3 pr-3 md:pb-0 md:pr-0 text-gray-500 shadow bottom-4 right-4 gap-4 items-start justify-between ml-auto -mx-1.5 -my-1.5 text-gray-400 hover:text-gray-900 focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 top-16 left-1/4 -translate-x-1/2 text-yellow-300 bg-pink-100 border-cyan-400 text-xs md:flex-row"></div>
     <script>
         window.Laravel = {};
         window.Laravel.set_ups = @json($set_ups);

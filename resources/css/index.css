@@ -1,4 +1,5 @@
 @import "bootstrap-icons/font/bootstrap-icons.min.css";
+@import "simplebar/dist/simplebar.min.css";
 @import "app.css";
 @import url("https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Noto+Sans+JP:wght@400;700;900&display=swap");
 * {
@@ -17,6 +18,7 @@ root {
 }
 
 #loading {
+  z-index: 1000;
   width: 100dvw;
   height: 100dvh;
   position: fixed;
@@ -82,6 +84,9 @@ root {
   color: #fff;
   font-family: "Darumadrop One", cursive;
   font-size: 2rem;
+}
+#loading .wrapper .text .dot {
+  color: #fff;
 }
 #loading .wrapper .text .dot:nth-child(1) {
   animation: dot alternate 0.5s infinite ease;

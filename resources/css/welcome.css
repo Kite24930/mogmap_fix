@@ -1,4 +1,5 @@
 @import "bootstrap-icons/font/bootstrap-icons.min.css";
+@import "simplebar/dist/simplebar.min.css";
 @import "app.css";
 @import url("https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Noto+Sans+JP:wght@400;700;900&display=swap");
 * {
