@@ -98,7 +98,8 @@ function setMarkers(targetDate) {
             comment.textContent = set_up.comment;
             let link = document.createElement('a');
             link.href = 'shop/' + set_up.id;
-            link.classList.add('map-info-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2');
+            link.classList.add('map-info-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2', 'hidden');
+            // beta release 仕様
             link.textContent = 'ショップページ';
             let instagram = document.createElement('a');
             instagram.href = 'https://www.instagram.com/' + set_up.instagram + '/';
@@ -182,7 +183,8 @@ function setMarkers(targetDate) {
             comment.textContent = set_up.comment;
             let link = document.createElement('a');
             link.href = 'shop/' + set_up.id;
-            link.classList.add('map-info-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2');
+            link.classList.add('map-info-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2', 'hidden');
+            // beta release 仕様
             link.textContent = 'ショップページ';
             let instagram = document.createElement('a');
             instagram.href = 'https://www.instagram.com/' + set_up.instagram + '/';
@@ -264,7 +266,8 @@ function setMarkers(targetDate) {
         comment.textContent = set_up.comment;
         let link = document.createElement('a');
         link.href = 'shop/' + set_up.id;
-        link.classList.add('map-info-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2');
+        link.classList.add('map-info-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2', 'hidden');
+        // beta release 仕様
         link.textContent = 'ショップページ';
         let instagram = document.createElement('a');
         instagram.href = 'https://www.instagram.com/' + set_up.instagram + '/';
@@ -414,7 +417,8 @@ function initList(targetDate) {
             eventLinkContainer.classList.add('event-link-container', 'flex', 'flex-col', 'items-center', 'w-full');
             let eventLink = document.createElement('a');
             eventLink.href = 'shop/' + set_up.id;
-            eventLink.classList.add('event-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2');
+            eventLink.classList.add('event-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2', 'hidden');
+            // beta release 仕様
             eventLink.textContent = 'ショップページ';
             let eventInstagram = document.createElement('a');
             eventInstagram.href = 'https://www.instagram.com/' + set_up.instagram + '/';
@@ -467,7 +471,8 @@ function initList(targetDate) {
         linkContainer.classList.add('shop-link-container', 'flex', 'flex-col', 'items-center', 'w-full');
         let link = document.createElement('a');
         link.href = 'shop/' + set_up.id;
-        link.classList.add('shop-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2');
+        link.classList.add('shop-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2', 'hidden');
+        // beta release 仕様
         link.textContent = 'ショップページ';
         let instagram = document.createElement('a');
         instagram.href = 'https://www.instagram.com/' + set_up.instagram + '/';

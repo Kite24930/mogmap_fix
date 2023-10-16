@@ -50,7 +50,7 @@
         window.Laravel.date = @json($date);
         window.Laravel.events = @json($events);
         window.Laravel.same_lists = @json($same_lists);
-        console.log(Laravel);
+        // console.log(Laravel);
     </script>
     @vite(['resources/js/index.js'])
 </x-template>
