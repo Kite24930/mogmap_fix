@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('same_lists', function (Blueprint $table) {
-            DB::statement(' create view same_lists as select date, place_id, place_name, address, lat, lng, count(date) as count from set_up_lists where place_id is not null group by date, place_id order by date');
+            DB::statement(' create view same_lists as select date, place_id, place_name, address, lat, lng, count(date) as count from set_up_lists where place_id is not null group by date, place_id, place_name, address, lat, lng order by date');
         });
     }
 
