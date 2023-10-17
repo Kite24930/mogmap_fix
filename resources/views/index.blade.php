@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="calendar" class="w-full md:w-1/2 p-4 md:p-0 md:pl-4">
+                <div id="calendar" class="w-full md:w-1/2 p-2 md:p-0 md:pl-4">
 
                 </div>
             </div>

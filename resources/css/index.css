@@ -191,4 +191,21 @@ main.winter {
   }
 }
 
+#calendar .fc-day.selected {
+  background-color: lightcyan;
+}
+#calendar .fc-toolbar-title {
+  font-family: "Darumadrop One", cursive;
+  font-size: 2rem;
+}
+#calendar .fc-toolbar-title span {
+  font-family: "Darumadrop One", cursive;
+  font-size: 2rem;
+}
+@media (max-width: 768px) {
+  #calendar .fc-header-toolbar {
+    margin-bottom: 0.5rem;
+  }
+}
+
 /*# sourceMappingURL=index.css.map */
