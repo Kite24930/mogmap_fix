@@ -6,7 +6,7 @@
     <a href="https://www.instagram.com/{{ $data->instagram }}" class="text-sm bg-pink-100 text-pink-800 font-medium px-2.5 py-0.5 rounded border border-pink-400 my-2">
         <i class="bi bi-instagram mr-1 text-pink-800"></i>Instagram
     </a>
-    <a href="{{ route('shop', $data->id) }}" class="text-sm bg-yellow-100 text-yellow-800 font-medium px-2.5 py-0.5 rounded border border-yellow-300 mb-2">
+    <a href="{{ route('shop', $data->id) }}" class="text-sm bg-yellow-100 text-yellow-800 font-medium px-2.5 py-0.5 rounded border border-yellow-300 mb-2 hidden">
         <i class="bi bi-shop mr-1 text-yellow-800"></i>ショップページ
     </a>
 </div>
