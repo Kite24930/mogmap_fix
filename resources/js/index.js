@@ -4,8 +4,6 @@ import { Loader } from "@googlemaps/js-api-loader";
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
 import 'flowbite';
 import { Calendar } from "@fullcalendar/core";
-import interactionPlugin from "@fullcalendar/interaction";
-import multiMonthPlugin from "@fullcalendar/multimonth";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import SimpleBar from "simplebar";
 
@@ -525,9 +523,12 @@ function initCalendar() {
     let duplication = [];
     Laravel.events.forEach((event) => {
         const eventData = {
+            id: 'event-' + event.event_id,
+            calendarId: 'cal1',
             title: event.event_name,
             start: event.event_date,
             end: event.event_date,
+            isAllday: true,
             color: '#F8717188',
         }
         events.push(eventData);
@@ -548,22 +549,60 @@ function initCalendar() {
             events.push(eventData);
         }
     });
-    let calendar = new Calendar(calendarEl, {
-        plugins: [interactionPlugin, dayGridPlugin],
+    function dayClickEventSet() {
+        document.querySelectorAll('.fc-day').forEach((day) => {
+            day.addEventListener('click', (e) => {
+                let target = e.target;
+                while (target.classList.contains('fc-day') === false) {
+                    target = target.parentNode;
+                }
+                const targetDate = target.getAttribute('data-date');
+                const selected = document.querySelector('.fc-day.selected');
+                if (selected) selected.classList.remove('selected');
+                target.classList.add('selected');
+                document.querySelector('.fc-toolbar-date').textContent = '-' + new Date(targetDate).getDate().toString();
+                if (MarkerClusterer) markerClusterer.clearMarkers();
+                setMarkers(targetDate);
+                initList(targetDate);
+            })
+        });
+    }
+    const calendarEl = document.getElementById('calendar');
+    const calendar = new Calendar(calendarEl, {
+        plugins: [dayGridPlugin],
         initialView: 'dayGridMonth',
-        // fixedWeekCount: 2,
-        // headerToolbar: false,
-        firstDay: 1,
-        selectable: true,
-        unselectAuto: false,
-        dateClick: (info) => {
-            if (markerClusterer) markerClusterer.clearMarkers();
-            setMarkers(info.dateStr);
-            initList(info.dateStr);
+        customButtons: {
+            customPrev: {
+                text: '<',
+                click: () => {
+                    calendar.prev();
+                    dayClickEventSet();
+                }
+            },
+            customNext: {
+                text: '>',
+                click: () => {
+                    calendar.next();
+                    dayClickEventSet();
+                }
+            }
         },
+        headerToolbar: {
+            left: 'customPrev',
+            center: 'title',
+            right: 'customNext',
+        },
+        titleFormat: { month: 'long' },
+        initialDate: new Date(),
         events: events,
-    });
+        timeZone: 'Asia/Tokyo',
+    })
     calendar.render();
+    document.querySelector('.fc-day[data-date="' + new Date().toISOString().slice(0, 10) + '"]').classList.add('selected');
+    const toolbarDate = document.createElement('span');
+    toolbarDate.classList.add('fc-toolbar-date');
+    document.querySelector('.fc-toolbar-title').appendChild(toolbarDate);
+    dayClickEventSet();
 }
 
 document.querySelectorAll('.tab-btn').forEach((btn) => {
