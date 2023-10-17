@@ -22,7 +22,7 @@
                                 </button>
                             </li>
                             <li class="flex-grow" role="presentation">
-                                <button id="map-tab" class="inline-block p-2 border-b-2 rounded-t-lg w-full tab-btn" data-tabs-target="#list" type="button" role="tab" aria-controls="list" aria-selected="false">
+                                <button id="list-tab" class="inline-block p-2 border-b-2 rounded-t-lg w-full tab-btn" data-tabs-target="#list" type="button" role="tab" aria-controls="list" aria-selected="false">
                                     <i class="bi bi-list-ul"></i>リスト表示
                                 </button>
                             </li>
