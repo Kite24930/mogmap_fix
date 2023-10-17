@@ -6,6 +6,7 @@ import 'flowbite';
 import { Calendar } from "@fullcalendar/core";
 import interactionPlugin from "@fullcalendar/interaction";
 import multiMonthPlugin from "@fullcalendar/multimonth";
+import dayGridPlugin from "@fullcalendar/daygrid";
 import SimpleBar from "simplebar";
 
 window.addEventListener('load', init);
@@ -543,9 +544,10 @@ function initCalendar() {
         }
     });
     let calendar = new Calendar(calendarEl, {
-        plugins: [multiMonthPlugin, interactionPlugin],
-        initialView: 'multiMonthYear',
-        headerToolbar: false,
+        plugins: [interactionPlugin, dayGridPlugin],
+        initialView: 'dayGridMonth',
+        // fixedWeekCount: 2,
+        // headerToolbar: false,
         firstDay: 1,
         selectable: true,
         unselectAuto: false,
