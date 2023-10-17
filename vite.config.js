@@ -22,6 +22,8 @@ export default defineConfig({
                 welcomeCss: 'resources/css/welcome.css',
                 index: 'resources/js/index.js',
                 indexCss: 'resources/css/index.css',
+                foodsBond: 'resources/js/foods_bond.js',
+                foodsBondCss: 'resources/css/foods_bond.css',
             }
         }
     }

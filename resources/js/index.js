@@ -1,8 +1,6 @@
 import './common.js';
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { Loader } from "@googlemaps/js-api-loader";
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
-import 'flowbite';
 import { Calendar } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import SimpleBar from "simplebar";
@@ -10,7 +8,6 @@ import SimpleBar from "simplebar";
 window.addEventListener('load', init);
 let map, infoWindow, markerClusterer;
 const mapEl = document.getElementById('map');
-const calendarEl = document.getElementById('calendar');
 
 function init() {
     initMap(Laravel.date);
@@ -75,7 +72,7 @@ function setMarkers(targetDate) {
         let mapOpen = document.createElement('a');
         mapOpen.href = 'https://maps.apple.com/?q=' + event.event_lat + ',' + event.event_lng + '&z=16&t=satellite';
         mapOpen.classList.add('map-open', 'text-sm', 'bg-green-100', 'text-green-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-green-400');
-        mapOpen.textContent = 'マップアプリで開く';
+        mapOpen.innerHTML = '<i class="bi bi-pin-map mr-1 text-green-800"></i>マップアプリで開く';
         let shopdiv = document.createElement('div');
         shopdiv.classList.add('map-info-shop', 'flex', 'flex-col', 'items-center', 'py-2', 'gap-2');
         Laravel.set_ups.filter((set_up) => {
@@ -102,11 +99,11 @@ function setMarkers(targetDate) {
             let link = document.createElement('a');
             link.href = 'shop/' + set_up.id;
             link.classList.add('map-info-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2');
-            link.textContent = 'ショップページ';
+            link.innerHTML = '<i class="bi bi-shop mr-1 text-yellow-800"></i>ショップページ';
             let instagram = document.createElement('a');
             instagram.href = 'https://www.instagram.com/' + set_up.instagram + '/';
             instagram.classList.add('map-info-instagram', 'text-sm', 'bg-pink-100', 'text-pink-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-pink-400', 'mb-2');
-            instagram.textContent = 'Instagram';
+            instagram.innerHTML = '<i class="bi bi-instagram mr-1 text-pink-800"></i>Instagram';
             shop.appendChild(shopName);
             shop.appendChild(openTime);
             if (set_up.comment !== null && set_up.comment !== '') shop.appendChild(comment);
@@ -164,7 +161,7 @@ function setMarkers(targetDate) {
         let mapOpen = document.createElement('a');
         mapOpen.href = 'https://maps.apple.com/?q=' + same_list.lat + ',' + same_list.lng + '&z=16&t=satellite';
         mapOpen.classList.add('map-open', 'text-sm', 'bg-green-100', 'text-green-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-green-400');
-        mapOpen.textContent = 'マップアプリで開く';
+        mapOpen.innerHTML = '<i class="bi bi-pin-map mr-1 text-green-800"></i>マップアプリで開く';
         let shopdiv = document.createElement('div');
         shopdiv.classList.add('map-info-shop', 'flex', 'flex-col', 'items-center', 'py-2', 'gap-2');
         Laravel.set_ups.filter((set_up) => {
@@ -190,11 +187,11 @@ function setMarkers(targetDate) {
             let link = document.createElement('a');
             link.href = 'shop/' + set_up.id;
             link.classList.add('map-info-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2');
-            link.textContent = 'ショップページ';
+            link.innerHTML = '<i class="bi bi-shop mr-1 text-yellow-800"></i>ショップページ';
             let instagram = document.createElement('a');
             instagram.href = 'https://www.instagram.com/' + set_up.instagram + '/';
             instagram.classList.add('map-info-instagram', 'text-sm', 'bg-pink-100', 'text-pink-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-pink-400', 'mb-2');
-            instagram.textContent = 'Instagram';
+            instagram.innerHTML = '<i class="bi bi-instagram mr-1 text-pink-800"></i>Instagram';
             shop.appendChild(name);
             shop.appendChild(openTime);
             if (set_up.comment !== null && set_up.comment !== '') shop.appendChild(comment);
@@ -276,15 +273,15 @@ function setMarkers(targetDate) {
         let link = document.createElement('a');
         link.href = 'shop/' + set_up.id;
         link.classList.add('map-info-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2');
-        link.textContent = 'ショップページ';
+        link.innerHTML = '<i class="bi bi-shop mr-1 text-yellow-800"></i>ショップページ';
         let instagram = document.createElement('a');
         instagram.href = 'https://www.instagram.com/' + set_up.instagram + '/';
         instagram.classList.add('map-info-instagram', 'text-sm', 'bg-pink-100', 'text-pink-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-pink-400', 'mb-2');
-        instagram.textContent = 'Instagram';
+        instagram.innerHTML = '<i class="bi bi-instagram mr-1 text-pink-800"></i>Instagram';
         let mapOpen = document.createElement('a');
         mapOpen.href = 'https://maps.apple.com/?q=' + set_up.lat + ',' + set_up.lng + '&z=16&t=satellite';
         mapOpen.classList.add('map-open', 'text-sm', 'bg-green-100', 'text-green-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-green-400');
-        mapOpen.textContent = 'マップアプリで開く';
+        mapOpen.innerHTML = '<i class="bi bi-pin-map mr-1 text-green-800"></i>マップアプリで開く';
         // info.appendChild(img);
         info.appendChild(name);
         info.appendChild(place);
@@ -399,7 +396,7 @@ function initList(targetDate) {
         let eventMapOpen = document.createElement('a');
         eventMapOpen.href = 'https://maps.apple.com/?q=' + event.event_lat + ',' + event.event_lng + '&z=16&t=satellite';
         eventMapOpen.classList.add('event-map-open', 'text-sm', 'bg-green-100', 'text-green-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-green-400');
-        eventMapOpen.textContent = 'マップアプリで開く';
+        eventMapOpen.innerHTML = '<i class="bi bi-pin-map mr-1 text-green-800"></i>マップアプリで開く';
         let eventShopdiv = document.createElement('div');
         eventShopdiv.classList.add('event-shop', 'flex', 'flex-col', 'items-center', 'py-2', 'gap-2', 'w-full');
         Laravel.set_ups.filter((set_up) => {
@@ -430,11 +427,11 @@ function initList(targetDate) {
             let eventLink = document.createElement('a');
             eventLink.href = 'shop/' + set_up.id;
             eventLink.classList.add('event-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2');
-            eventLink.textContent = 'ショップページ';
+            eventLink.innerHTML = '<i class="bi bi-shop mr-1 text-yellow-800"></i>ショップページ';
             let eventInstagram = document.createElement('a');
             eventInstagram.href = 'https://www.instagram.com/' + set_up.instagram + '/';
             eventInstagram.classList.add('event-instagram', 'text-sm', 'bg-pink-100', 'text-pink-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-pink-400', 'mb-2');
-            eventInstagram.textContent = 'Instagram';
+            eventInstagram.innerHTML = '<i class="bi bi-instagram mr-1 text-pink-800"></i>Instagram';
             eventShopDetail.appendChild(eventShopName);
             eventShopDetail.appendChild(eventOpenTime);
             if (set_up.comment !== null && set_up.comment !== '') eventShopDetail.appendChild(comment);
@@ -487,15 +484,15 @@ function initList(targetDate) {
         let link = document.createElement('a');
         link.href = 'shop/' + set_up.id;
         link.classList.add('shop-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2');
-        link.textContent = 'ショップページ';
+        link.innerHTML = '<i class="bi bi-shop mr-1 text-yellow-800"></i>ショップページ';
         let instagram = document.createElement('a');
         instagram.href = 'https://www.instagram.com/' + set_up.instagram + '/';
         instagram.classList.add('shop-instagram', 'text-sm', 'bg-pink-100', 'text-pink-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-pink-400', 'mb-2');
-        instagram.textContent = 'Instagram';
+        instagram.innerHTML = '<i class="bi bi-instagram mr-1 text-pink-800"></i>Instagram';
         let mapOpen = document.createElement('a');
         mapOpen.href = 'https://maps.apple.com/?q=' + set_up.lat + ',' + set_up.lng + '&z=16&t=satellite';
         mapOpen.classList.add('map-open', 'text-sm', 'bg-green-100', 'text-green-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-green-400', 'md-2');
-        mapOpen.textContent = 'マップアプリで開く';
+        mapOpen.innerHTML = '<i class="bi bi-pin-map mr-1 text-green-800"></i>マップアプリで開く';
         shopDetail.appendChild(name);
         shopDetail.appendChild(place);
         shopDetail.appendChild(address);
