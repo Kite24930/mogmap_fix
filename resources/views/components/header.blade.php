@@ -14,8 +14,10 @@
         </div>
         <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-full md:w-auto max-w-2xl">
             <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton">
-                <li class="hidden">
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Dashboard</a>
+                <li class="">
+                    <a href="{{ route('index') }}" class="block px-4 py-2 hover:bg-gray-100">
+                        <i class="bi bi-house mr-2"></i>HOME
+                    </a>
                 </li>
                 <li>
                     <a href="{{ route('foods_bond') }}" class="block px-4 py-2 hover:bg-gray-100">
@@ -32,7 +34,7 @@
         </a>
         <div class="w-48 text-sm border border-gray-200 rounded-lg">
             <a href="/" class="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-blue-700 focus:ring-2">
-                home
+                <i class="bi bi-house mr-2"></i>HOME
             </a>
         </div>
         <div class="w-48 text-sm border border-gray-200 rounded-lg">
