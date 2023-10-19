@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <div class="flex flex-col w-full justify-center items-center p-4">
+        <div class="flex flex-col w-full justify-center items-center p-4 gap-6">
             <div id="October" class="flex flex-col w-full justify-center items-center bg-white rounded-lg border border-blue-900">
                 <p class="text-6xl font-bold ja-display-font">October</p>
                 <hr>
@@ -75,6 +75,68 @@
                                     </div>
                                     <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
                                         <x-foods_bond.shop-card :data="$shop_lists->find(35)" targetDate="10/31(Tue)" appeal="キューバサンド🥪" />
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="November" class="flex flex-col w-full justify-center items-center bg-white rounded-lg border border-blue-900">
+                <p class="text-6xl font-bold ja-display-font">November</p>
+                <hr>
+                <div class="flex flex-col md:flex-row w-full justify-evenly items-center p-0 md:p-4">
+                    <div class="w-full md:w-1/2 p-4">
+                        <img src="{{ asset('storage/foods_bond/November.png') }}" alt="October" class="w-full rounded-lg">
+                        <p class="text-xs text-gray-400 md:hidden">長押しすると画像を保存できます</p>
+                    </div>
+                    <div class="flex flex-col justify-center items-center max-w-full md:max-w-[50%] p-4 gap-4">
+                        <div class="edu-center flex flex-col items-center p-4 bg-pink-200 border border-pink-400 rounded-lg w-full">
+                            <p class="text-xl font-bold mb-2">教職支援センター前</p>
+                            <div class="swiper flipSwiper max-w-full md:max-w-[350px]">
+                                <div class="swiper-wrapper w-full">
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(36)" targetDate="11/2(Thu)" appeal="クレープ🐈" />
+                                    </div>
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(9)" targetDate="11/14(Tue)" appeal="佐世保バーガー🍔" />
+                                    </div>
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(21)" targetDate="11/16(Thu)" appeal="ピタパンアイス🍨" />
+                                    </div>
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.visiter-card shopName="クラッフェ" shopImg="kuraffe.JPG" instagram="kitchenkuraffe" targetDate="11/28(Tue)" appeal="だし巻きバーガー🥚" />
+                                    </div>
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(45)" targetDate="11/30(Thu)" appeal="ロコモコ&りんご飴🍎" />
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                        <div class="sansui-hole flex flex-col items-center w-full p-4 bg-green-200 border border-green-400 rounded-lg">
+                            <p class="text-2xl font-bold mb-2">三翠ホール前</p>
+                            <div class="swiper flipSwiper max-w-full md:max-w-[350px]">
+                                <div class="swiper-wrapper w-full">
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.visiter-card shopName="小春や" shopImg="koharuya.JPG" instagram="ko_ha_ru_ya" targetDate="11/2(Thu)" appeal="わらび餅🍡" />
+                                    </div>
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(11)" targetDate="11/14(Tue)" appeal="キーマカレー🍛" />
+                                    </div>
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.visiter-card shopName="次男の焼きおにぎり" shopImg="tsugio.JPG" instagram="tsugio_no_yakionigiri" targetDate="11/16(Thu)" appeal="焼きおにぎり🍙" />
+                                    </div>
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.visiter-card shopName="Lansen" shopImg="lansen.JPG" instagram="kitchenbus.lansen" targetDate="11/28(Tue)" appeal="ハンバーガー🍔" />
+                                    </div>
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(14)" targetDate="11/30(Thu)" appeal="コロッケ🥔" />
                                     </div>
                                 </div>
                                 <div class="swiper-button-next"></div>
