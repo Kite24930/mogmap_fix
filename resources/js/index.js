@@ -1,4 +1,5 @@
 import './common.js';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { Loader } from "@googlemaps/js-api-loader";
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
 import { Calendar } from "@fullcalendar/core";
@@ -97,7 +98,7 @@ function setMarkers(targetDate) {
             comment.classList.add('map-info-comment', 'text-xs', 'border', 'border-cyan-400', 'px-1', 'rounded');
             comment.textContent = set_up.comment;
             let link = document.createElement('a');
-            link.href = 'shop/' + set_up.id;
+            link.href = 'shop/' + set_up.shop_id;
             link.classList.add('map-info-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2');
             link.innerHTML = '<i class="bi bi-shop mr-1 text-yellow-800"></i>ショップページ';
             let instagram = document.createElement('a');
@@ -185,7 +186,7 @@ function setMarkers(targetDate) {
             comment.classList.add('map-info-comment', 'text-xs', 'border', 'border-cyan-400', 'px-1', 'rounded');
             comment.textContent = set_up.comment;
             let link = document.createElement('a');
-            link.href = 'shop/' + set_up.id;
+            link.href = 'shop/' + set_up.shop_id;
             link.classList.add('map-info-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2');
             link.innerHTML = '<i class="bi bi-shop mr-1 text-yellow-800"></i>ショップページ';
             let instagram = document.createElement('a');
@@ -271,7 +272,7 @@ function setMarkers(targetDate) {
         comment.classList.add('map-info-comment', 'text-xs', 'border', 'border-cyan-400', 'px-1', 'rounded');
         comment.textContent = set_up.comment;
         let link = document.createElement('a');
-        link.href = 'shop/' + set_up.id;
+        link.href = 'shop/' + set_up.shop_id;
         link.classList.add('map-info-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2');
         link.innerHTML = '<i class="bi bi-shop mr-1 text-yellow-800"></i>ショップページ';
         let instagram = document.createElement('a');
@@ -425,7 +426,7 @@ function initList(targetDate) {
             let eventLinkContainer = document.createElement('div');
             eventLinkContainer.classList.add('event-link-container', 'flex', 'flex-col', 'items-center', 'w-full');
             let eventLink = document.createElement('a');
-            eventLink.href = 'shop/' + set_up.id;
+            eventLink.href = 'shop/' + set_up.shop_id;
             eventLink.classList.add('event-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2');
             eventLink.innerHTML = '<i class="bi bi-shop mr-1 text-yellow-800"></i>ショップページ';
             let eventInstagram = document.createElement('a');
@@ -482,7 +483,7 @@ function initList(targetDate) {
         let linkContainer = document.createElement('div');
         linkContainer.classList.add('shop-link-container', 'flex', 'flex-col', 'items-center', 'w-full');
         let link = document.createElement('a');
-        link.href = 'shop/' + set_up.id;
+        link.href = 'shop/' + set_up.shop_id;
         link.classList.add('shop-link', 'text-sm', 'bg-yellow-100', 'text-yellow-800', 'font-medium', 'px-2.5', 'py-0.5', 'rounded', 'border', 'border-yellow-300', 'my-2');
         link.innerHTML = '<i class="bi bi-shop mr-1 text-yellow-800"></i>ショップページ';
         let instagram = document.createElement('a');

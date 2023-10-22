@@ -1,0 +1,16 @@
+@import "../common.css";
+.shopSwiper .swiper-slide .img-container {
+  width: 100%;
+}
+.shopSwiper .swiper-slide .img-container::before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+.shopSwiper .swiper-slide .img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*# sourceMappingURL=shop-list.css.map */

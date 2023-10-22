@@ -14,9 +14,14 @@
         </div>
         <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-full md:w-auto max-w-2xl">
             <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton">
-                <li class="">
+                <li class="border-b">
                     <a href="{{ route('index') }}" class="block px-4 py-2 hover:bg-gray-100">
                         <i class="bi bi-house mr-2"></i>HOME
+                    </a>
+                </li>
+                <li class="border-b">
+                    <a href="{{ route('shop.list') }}" class="block px-4 py-2 hover:bg-gray-100">
+                        <i class="bi bi-shop mr-2"></i>ショップ一覧
                     </a>
                 </li>
                 <li>
@@ -33,8 +38,11 @@
             <img src="{{ asset('storage/data/mogmap_logo.png') }}" alt="mogmap" class="object-contain h-8 mb-1">
         </a>
         <div class="w-48 text-sm border border-gray-200 rounded-lg">
-            <a href="/" class="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-blue-700 focus:ring-2">
+            <a href="{{ route('index') }}" class="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-blue-700 focus:ring-2">
                 <i class="bi bi-house mr-2"></i>HOME
+            </a>
+            <a href="{{ route('shop.list') }}" class="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-blue-700 focus:ring-2">
+                <i class="bi bi-shop mr-2"></i>ショップ一覧
             </a>
         </div>
         <div class="w-48 text-sm border border-gray-200 rounded-lg">

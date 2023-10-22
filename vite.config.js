@@ -18,10 +18,16 @@ export default defineConfig({
         manifest: true,
         rollupOptions: {
             input: {
+                app: 'resources/js/app.js',
+                appCss: 'resources/css/app.css',
+                common: 'resources/js/common.js',
+                commonCss: 'resources/css/common.css',
                 welcome: 'resources/js/welcome.js',
                 welcomeCss: 'resources/css/welcome.css',
                 index: 'resources/js/index.js',
                 indexCss: 'resources/css/index.css',
+                shopList: 'resources/js/shop/shop-list.js',
+                shopListCss: 'resources/css/shop/shop-list.css',
                 foodsBond: 'resources/js/foods_bond.js',
                 foodsBondCss: 'resources/css/foods_bond.css',
             }

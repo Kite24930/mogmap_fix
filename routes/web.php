@@ -19,6 +19,7 @@ use App\Http\Controllers\KitchenCarController;
 
 Route::get('/', [MainController::class, 'index'])->name('index');
 Route::get('/foods_bond', [MainController::class, 'foods_bond'])->name('foods_bond');
+Route::get('shop/list', [MainController::class, 'shop_list'])->name('shop.list');
 Route::get('/shop/{id}', [MainController::class, 'shop'])->name('shop');
 
 Route::get('/dashboard', function () {

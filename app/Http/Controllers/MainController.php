@@ -32,4 +32,20 @@ class MainController extends Controller
         ];
         return view('foods_bond.foods_bond', $data);
     }
+
+    public function shop_list()
+    {
+        $data = [
+            'shop_lists' => ShopList::where('status', 1)->get(),
+        ];
+        return view('shop.shop-list', $data);
+    }
+
+    public function shop($id)
+    {
+        $data = [
+            'shop' => ShopList::find($id),
+        ];
+        return view('shop.shop', $data);
+    }
 }
