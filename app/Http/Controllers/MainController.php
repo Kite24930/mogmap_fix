@@ -48,4 +48,9 @@ class MainController extends Controller
         ];
         return view('shop.shop', $data);
     }
+
+    public function register()
+    {
+        return view('firebase.register');
+    }
 }
