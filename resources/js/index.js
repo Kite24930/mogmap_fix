@@ -19,6 +19,13 @@ function init() {
     setTimeout(() => {
         loading.style.display = 'none';
     }, 500)
+    onAuthStateChanged(getAuth(), user => {
+        if (user) {
+            console.log('ログインしています。');
+        } else {
+            console.log('ログアウトしています。');
+        }
+    })
 }
 
 function initMap(date) {

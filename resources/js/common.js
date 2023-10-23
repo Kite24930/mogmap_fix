@@ -54,8 +54,6 @@ function init() {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            console.log(user);
-            console.log('ログインしています');
             spLogin.innerHTML = '';
             pcLogin.innerHTML = '';
             spLogin.classList.add('flex', 'flex-col', 'items-center', 'justify-center');
@@ -74,7 +72,6 @@ function init() {
             pcLoginBtn.classList.add('text-pink-500');
             pcLoginBtn.innerHTML = '<i class="bi bi-person-hearts mr-2 text-pink-500"></i>ログイン中';
         } else {
-            console.log('ログインしていません');
             loginBtn.forEach(el => {
                 el.addEventListener('click', (e) => {
                     const emailEl = el.getAttribute('data-target-email');
