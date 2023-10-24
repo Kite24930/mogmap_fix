@@ -21,16 +21,10 @@ Route::get('/', [MainController::class, 'index'])->name('index');
 Route::get('/foods_bond', [MainController::class, 'foods_bond'])->name('foods_bond');
 Route::get('shop/list', [MainController::class, 'shop_list'])->name('shop.list');
 Route::get('/shop/{id}', [MainController::class, 'shop'])->name('shop');
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('register', [MainController::class, 'register'])->name('firebase.register');
-
-//Route::middleware('auth')->group(function () {
-//    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-//});
-//
-//require __DIR__.'/auth.php';
+Route::get('/mypage', [MainController::class, 'mypage'])->name('mypage');
+Route::get('/followed', [MainController::class, 'followed'])->name('followed');
+Route::get('/terms', [MainController::class, 'terms'])->name('terms');
+Route::get('/policy', [MainController::class, 'policy'])->name('policy');
+//Route::get('/labels', [MainController::class, 'labels'])->name('labels');
+Route::get('/contact', [MainController::class, 'contact'])->name('contact');

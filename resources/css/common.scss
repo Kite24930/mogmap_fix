@@ -20,6 +20,18 @@ root {
     font-family: 'Darumadrop One', cursive;
 }
 
+.bg-white-transparent {
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.list-upper-roman {
+    list-style: upper-roman;
+}
+
+.list-lower-roman {
+    list-style: lower-roman;
+}
+
 #loading {
     z-index: 1000;
     width: 100dvw;

@@ -30,6 +30,8 @@ export default defineConfig({
                 shopListCss: 'resources/css/shop/shop-list.css',
                 foodsBond: 'resources/js/foods_bond.js',
                 foodsBondCss: 'resources/css/foods_bond.css',
+                footer: 'resources/js/footer.js',
+                footerCss: 'resources/css/footer.css',
             }
         }
     }

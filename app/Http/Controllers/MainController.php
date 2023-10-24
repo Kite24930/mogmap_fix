@@ -53,4 +53,16 @@ class MainController extends Controller
     {
         return view('firebase.register');
     }
+
+    public function terms() {
+        return view('footer.terms');
+    }
+
+    public function policy() {
+        return view('footer.policy');
+    }
+
+    public function contact() {
+        return view('footer.contact');
+    }
 }
