@@ -28,6 +28,8 @@ export default defineConfig({
                 indexCss: 'resources/css/index.css',
                 shopList: 'resources/js/shop/shop-list.js',
                 shopListCss: 'resources/css/shop/shop-list.css',
+                shop: 'resources/js/shop/shop.js',
+                shopCss: 'resources/css/shop/shop.css',
                 foodsBond: 'resources/js/foods_bond.js',
                 foodsBondCss: 'resources/css/foods_bond.css',
                 footer: 'resources/js/footer.js',

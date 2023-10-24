@@ -1,6 +1,6 @@
 import './common.js';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { Loader } from "@googlemaps/js-api-loader";
+import { loader } from "./module/firebase.js";
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
 import { Calendar } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
@@ -30,11 +30,6 @@ function init() {
 
 function initMap(date) {
     try {
-        const loader = new Loader({
-            apiKey: 'AIzaSyBMkY2aB3g-6_xLG-rI5AJRQkjqTg4HMRM',
-            version: 'weekly',
-            libraries: ['places']
-        });
         loader.load().then(() => {
             const mieUniv = new google.maps.LatLng(34.74452133045268, 136.52417046859435);
             map = new google.maps.Map(mapEl, {

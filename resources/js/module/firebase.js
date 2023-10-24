@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { Loader } from "@googlemaps/js-api-loader";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBMkY2aB3g-6_xLG-rI5AJRQkjqTg4HMRM",
@@ -14,4 +15,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-export { app, analytics };
+const loader = new Loader({
+    apiKey: 'AIzaSyBMkY2aB3g-6_xLG-rI5AJRQkjqTg4HMRM',
+    version: 'weekly',
+    libraries: ['places']
+});
+
+export { app, analytics, loader };

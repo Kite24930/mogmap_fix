@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\EventList;
+use App\Models\Menu;
 use App\Models\SameList;
 use App\Models\SetUpList;
 use App\Models\ShopList;
@@ -45,6 +46,8 @@ class MainController extends Controller
     {
         $data = [
             'shop' => ShopList::find($id),
+            'menus' => Menu::where('shop_id', $id)->get(),
+            'schedules' => SetUpList::where('shop_id', $id)->whereDate('date', '>=', date('Y-m-d'))->orderBy('date')->get(),
         ];
         return view('shop.shop', $data);
     }

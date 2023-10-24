@@ -20,7 +20,7 @@ use App\Http\Controllers\KitchenCarController;
 Route::get('/', [MainController::class, 'index'])->name('index');
 Route::get('/foods_bond', [MainController::class, 'foods_bond'])->name('foods_bond');
 Route::get('shop/list', [MainController::class, 'shop_list'])->name('shop.list');
-Route::get('/shop/{id}', [MainController::class, 'shop'])->name('shop');
+Route::get('/shop/{id}/{name?}', [MainController::class, 'shop'])->name('shop');
 Route::get('register', [MainController::class, 'register'])->name('firebase.register');
 Route::get('/mypage', [MainController::class, 'mypage'])->name('mypage');
 Route::get('/followed', [MainController::class, 'followed'])->name('followed');

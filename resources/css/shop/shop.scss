@@ -1,0 +1,36 @@
+@import "../common.css";
+
+.img-container {
+    position: relative;
+    &::before {
+        content: "";
+        display: block;
+        padding-top: 75%;
+    }
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.swiper-button-prev {
+    left: -3rem!important;
+    @media (max-width: 768px) {
+        left: -1rem!important;
+        top: calc(100% - 1rem)!important;
+    }
+}
+
+.swiper-button-next {
+    right: -3rem!important;
+    @media (max-width: 768px) {
+        right: -1rem!important;
+        top: calc(100% - 1rem)!important;
+    }
+}
