@@ -4,6 +4,7 @@ import 'flowbite';
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 window.addEventListener('load', init);
+const loading = document.getElementById('loading');
 const loginBtn = document.querySelectorAll('.login-btn');
 const spLoginBtn = document.getElementById('spLoginBtn');
 const pcLoginBtn = document.getElementById('pcLoginBtn');
@@ -145,10 +146,6 @@ function init() {
 
 
 function mailAndPassLogin(email, password) {
-    document.querySelectorAll('.login-btn').forEach(el => {
-        el.innerHTML = '';
-        el.appendChild(loadSpinContainer.cloneNode(true));
-    });
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
         window.alert('ログインが正常に完了しました');
@@ -160,10 +157,6 @@ function mailAndPassLogin(email, password) {
 }
 
 function mailAndPassLogout() {
-    document.querySelectorAll('.logout-btn').forEach(el => {
-        el.innerHTML = '';
-        el.appendChild(loadSpinContainer.cloneNode(true));
-    })
     const auth = getAuth();
     signOut(auth).then(() => {
         window.alert('ログアウトしました');
