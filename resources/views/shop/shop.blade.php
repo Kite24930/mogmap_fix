@@ -60,7 +60,7 @@
                                 </span>
                             </button>
                         </li>
-                        @if(isset($menus))
+                        @if(isset($menus) && count($menus) > 0)
                             <li class="flex-grow flex-1" role="presentation">
                                 <button class="w-full inline-block p-4 border-b-2 rounded-t-lg text-sm group text-green-800 hover:text-green-50 hover:bg-green-800" id="menu-tab" type="button" role="tab" aria-controls="menu" aria-selected="false" data-tabs-target="#menu">
                                     <span class="flex items-center justify-center group-hover:text-green-50">
@@ -192,7 +192,7 @@
                             </div>
                         </div>
                     </div>
-                    @if(isset($menus))
+                    @if(isset($menus) && count($menus) > 0)
                         <div class="hidden border-b border-r border-l border-gray-200 rounded-b-lg p-4 w-full" id="menu" role="tabpanel" aria-labelledby="menu-tab">
                             <div class="w-full max-w-2xl mx-auto flex justify-center items-center">
                                 <table class="w-full">

@@ -24,12 +24,15 @@ function init() {
     })
 }
 
-const tabElements = [
-    {
+const tabElements = [];
+if (document.getElementById('pr')) {
+    tabElements.push({
         id: 'pr',
         triggerEl: document.getElementById('pr-tab'),
         targetEl: document.getElementById('pr')
-    },
+    });
+}
+tabElements.push(
     {
         id: 'schedule',
         triggerEl: document.getElementById('schedule-tab'),
@@ -39,16 +42,17 @@ const tabElements = [
         id: 'profile',
         triggerEl: document.getElementById('profile-tab'),
         targetEl: document.getElementById('profile')
-    },
-    {
+    }
+);
+if (document.getElementById('menu')) {
+    tabElements.push({
         id: 'menu',
         triggerEl: document.getElementById('menu-tab'),
         targetEl: document.getElementById('menu')
-    }
-];
+    });
+}
 
 const options = {
-    defaultTabId: 'pr',
     activeClasses: 'bg-green-500',
     inactiveClasses: 'bg-green-100',
 }

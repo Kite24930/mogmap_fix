@@ -52,6 +52,43 @@ class MainController extends Controller
         return view('shop.shop', $data);
     }
 
+    public function mypage() {
+        $data = [
+            'csrf_token' => csrf_token(),
+        ];
+        return view('account.mypage', $data);
+    }
+
+    public function account_edit() {
+        $data = [
+            'csrf_token' => csrf_token(),
+        ];
+        return view('account.account-edit', $data);
+    }
+
+    public function followed() {
+        $data = [
+            'csrf_token' => csrf_token(),
+        ];
+        return view('account.followed', $data);
+    }
+
+    public function shop_edit($id) {
+        $data = [
+            'shop' => ShopList::find($id),
+            'csrf_token' => csrf_token(),
+        ];
+        return view('shop.shop-edit', $data);
+    }
+
+    public function shop_setup($id) {
+        $data = [
+            'shop' => ShopList::find($id),
+            'csrf_token' => csrf_token(),
+        ];
+        return view('shop.shop-setup', $data);
+    }
+
     public function register()
     {
         return view('firebase.register');

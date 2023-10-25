@@ -23,7 +23,10 @@ Route::get('shop/list', [MainController::class, 'shop_list'])->name('shop.list')
 Route::get('/shop/{id}/{name?}', [MainController::class, 'shop'])->name('shop');
 Route::get('register', [MainController::class, 'register'])->name('firebase.register');
 Route::get('/mypage', [MainController::class, 'mypage'])->name('mypage');
+Route::get('/account/edit', [MainController::class, 'account_edit'])->name('account.edit');
 Route::get('/followed', [MainController::class, 'followed'])->name('followed');
+Route::get('/shop/edit/{id}', [MainController::class, 'shop_edit'])->name('shop.edit');
+Route::get('/shop/setup/{id}', [MainController::class, 'shop_setup'])->name('shop.setup');
 Route::get('/terms', [MainController::class, 'terms'])->name('terms');
 Route::get('/policy', [MainController::class, 'policy'])->name('policy');
 //Route::get('/labels', [MainController::class, 'labels'])->name('labels');
