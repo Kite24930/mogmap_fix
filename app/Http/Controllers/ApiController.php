@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Account;
 use App\Models\Costomer;
+use App\Models\FollowList;
 use App\Models\ShopList;
 use Illuminate\Http\Request;
 
@@ -30,6 +31,16 @@ class ApiController extends Controller
             $shops = ShopList::where('shop_id', $costomer->user_id)->get();
             $data['shops'] = $shops;
         }
+        return response()->json($data);
+    }
+
+    function followedGet(Request $request) {
+        $account = Account::where('uid', hash('sha256', $request->uid))->first();
+        $costomer = Costomer::where('user_id', hash('sha256', $account->solt.$request->uid))->first();
+        $data = [
+            'status' => 'ok',
+            'followed' => FollowList::where('user_id', $costomer->user_id)->get(),
+        ];
         return response()->json($data);
     }
 }

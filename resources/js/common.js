@@ -19,7 +19,7 @@ logoutBtn.type = 'button';
 logoutBtn.classList.add('inline-flex', 'items-center', 'px-4', 'py-2', 'my-2', 'bg-gray-800', 'border', 'border-transparent', 'rounded-md', 'font-semibold', 'text-xs', 'text-white', 'uppercase', 'tracking-widest', 'hover:bg-gray-700', 'focus:bg-gray-700', 'active:bg-gray-900', 'focus:outline-none', 'focus:border-gray-900', 'focus:ring-2', 'focus:ring-indigo-500', 'focus:ring-offset-2', 'transition', 'ease-in-out', 'duration-150', 'logout-btn');
 logoutBtn.innerHTML = '<i class="bi bi-door-closed mr-2 text-white"></i>ログアウト';
 const followListBtn = document.createElement('a');
-followListBtn.href = '/follow';
+followListBtn.href = '/followed';
 followListBtn.classList.add('block', 'w-full', 'px-4', 'py-2', 'border-b', 'border-gray-200', 'cursor-pointer', 'hover:bg-gray-100', 'hover:text-blue-700', 'focus:outline-none', 'focus:ring-blue-700', 'focus:ring-2');
 followListBtn.innerHTML = '<i class="bi bi-arrow-through-heart mr-2"></i>フォローリスト';
 const emailLabel = document.createElement('label');
