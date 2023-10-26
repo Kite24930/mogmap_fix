@@ -88,4 +88,25 @@ class ApiController extends Controller
             ]);
         }
     }
+
+    public function accountName(Request $request) {
+        try {
+            DB::beginTransaction();
+            $account = Account::where('uid', hash('sha256', $request->user_id))->first();
+            $customer = Costomer::where('user_id', hash('sha256', $account->solt.$request->user_id))->first();
+            $customer->update([
+                'user_name' => $request->user_name,
+            ]);
+            DB::commit();
+            return response()->json([
+                'msg' => 'ok',
+            ]);
+        } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json([
+                'msg' => 'ng',
+                'error' => $e->getMessage(),
+            ]);
+        }
+    }
 }

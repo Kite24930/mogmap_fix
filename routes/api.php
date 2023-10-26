@@ -22,3 +22,4 @@ Route::post('/accountVerification', [ApiController::class, 'accountVerification'
 Route::post('/followedGet', [ApiController::class, 'followedGet'])->name('followedGet');
 Route::post('/shop/follow/check', [ApiController::class, 'followCheck'])->name('shop.follow.check');
 Route::post('/shop/follow', [ApiController::class, 'follow'])->name('shop.follow');
+Route::post('/account/name', [ApiController::class, 'accountName'])->name('account.name');
