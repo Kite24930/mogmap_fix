@@ -12,12 +12,10 @@
     </div>
     <main class="flex flex-col justify-center items-start pt-20 md:pt-0 md:pl-[240px] min-h-[100dvh] @switch(date('m')) @case(1)winter @break @case(2)winter @break @case(3)spring @break @case(4)spring @break @case(5)spring @break @case(6)summer @break @case(7)summer @break @case(8)summer @break @case(9)autumn @break @case(10)autumn @break @case(11)autumn @break @case(12)winter @break @endswitch">
         <div id="container" class="w-full min-h-[100dvh] md:p-6 relative">
-            <div id="followBtn" class="absolute top-2 left-2 w-14 h-14 bg-pink-50 flex justify-center items-center border rounded-full">
+            <div id="followBtn" class="absolute top-2 left-2 w-14 h-14 bg-pink-50 flex justify-center items-center border rounded-full group cursor-pointer" data-shop-id="{{ $shop->id }}">
                 <div class="spin-load-wrapper w-full h-full flex justify-center items-center">
                     <div class="spin-load text-pink-500"></div>
                 </div>
-{{--                <i class="bi bi-heart-arrow mr-1 text-pink-500"></i><i class="bi bi-heart text-pink-500"></i>--}}
-{{--                <i class="bi bi-arrow-through-heart text-2xl text-pink-100"></i>--}}
             </div>
             <div class="rounded-lg p-4 bg-white border border-gray-500 flex flex-col items-center">
                 <div class="w-full flex flex-col md:flex-row justify-center md:justify-evenly items-center mb-4">
@@ -224,7 +222,7 @@
             </div>
         </div>
     </main>
-    <div class="hidden bg-green-100 bg-green-500 text-green-800 text-green-50"></div>
+    <div class="hidden bg-green-100 bg-green-500 text-green-800 text-green-50 bg-pink-100 bg-pink-500 text-pink-100 text-pink-500 hover:bg-pink-500 hover:bg-pink-100 group-hover:text-pink-100 group-hover:text-pink-500"></div>
     <script>
         window.Laravel = {};
         window.Laravel.shop = @json($shop);

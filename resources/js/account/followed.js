@@ -1,6 +1,7 @@
 import '../common.js';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import axios from "axios";
+import followingShop from "../module/following.js";
 
 window.addEventListener('load', init);
 const contentsContainer = document.getElementById('contentsContainer');
@@ -16,6 +17,31 @@ function init() {
                     console.log(res.data);
                     if (res.data.status === 'ok') {
                         res.data.followed.forEach(shop => {
+                            const followMethod = (e) => {
+                                const type = e.target.getAttribute('data-type');
+                                const shopId = e.target.getAttribute('data-shop-id');
+                                const status = followingShop(shopId, user.uid, type);
+                                if (status !== 'error') {
+                                    switch (type) {
+                                        case 'following':
+                                            e.target.classList.remove('bg-pink-100', 'text-pink-500', 'hover:bg-pink-500', 'hover:text-pink-100');
+                                            e.target.classList.add('bg-pink-500', 'text-pink-100', 'hover:bg-pink-100', 'hover:text-pink-500');
+                                            e.target.innerHTML = '<i class="bi bi-arrow-through-heart text-pink-100 group-hover:text-pink-500"></i>フォロー中';
+                                            e.target.setAttribute('data-type', 'unfollowing');
+                                            window.alert('フォローしました。');
+                                            break;
+                                        case 'unfollowing':
+                                            e.target.classList.remove('bg-pink-500', 'text-pink-100', 'hover:bg-pink-100', 'hover:text-pink-500');
+                                            e.target.classList.add('bg-pink-100', 'text-pink-500', 'hover:bg-pink-500', 'hover:text-pink-100');
+                                            e.target.innerHTML = '<i class="bi bi-heart-arrow mr-1 text-pink-500 group-hover:text-pink-100"></i><i class="bi bi-heart text-pink-500 group-hover:text-pink-100"></i>フォローする';
+                                            e.target.setAttribute('data-type', 'following');
+                                            window.alert('フォローを解除しました。');
+                                            break;
+                                    }
+                                } else {
+                                    window.alert('エラーが発生しました。');
+                                }
+                            }
                             const shopContainer = document.createElement('div');
                             shopContainer.classList.add('shopContainer', 'bg-yellow-50', 'border', 'border-yellow-300', 'p-4', 'rounded-lg', 'flex', 'flex-col', 'items-center', 'gap-4');
                             const shopName = document.createElement('p');
@@ -36,9 +62,11 @@ function init() {
                             shopPageLink.href = '/shop/' + shop.shop_id + '/' + shop.shop_name;
                             shopPageLink.textContent = 'ショップページへ';
                             const shopFollowed = document.createElement('div');
-                            shopFollowed.classList.add('shopFollowed', 'px-4', 'py-2', 'text-sm', 'bg-pink-100', 'rounded', 'border', 'border-pink-500', 'text-pink-500', 'hover:bg-pink-500', 'hover:text-pink-100', 'hover:border-pink-100', 'transition', 'duration-300', 'group');
-                            shopFollowed.setAttribute('data-shop-id', shop.id);
-                            shopFollowed.innerHTML = '<i class="bi bi-arrow-through-heart mr-2 text-pink-500 group-hover:text-pink-100"></i>フォロー中';
+                            shopFollowed.classList.add('shopFollowed', 'px-4', 'py-2', 'text-sm', 'bg-pink-500', 'rounded', 'border', 'border-pink-100', 'text-pink-100', 'hover:bg-pink-100', 'hover:text-pink-500', 'hover:border-pink-500', 'transition', 'duration-300', 'group', 'cursor-pointer');
+                            shopFollowed.setAttribute('data-shop-id', shop.shop_id);
+                            shopFollowed.setAttribute('data-type', 'unfollowing');
+                            shopFollowed.innerHTML = '<i class="bi bi-arrow-through-heart mr-2 text-pink-100 group-hover:text-pink-500"></i>フォロー中';
+                            shopFollowed.addEventListener('click', followMethod);
                             shopItemInfoContainer.appendChild(shopPageLink);
                             shopItemInfoContainer.appendChild(shopFollowed);
                             shopItemContainer.appendChild(shopImgContainer);

@@ -3,10 +3,17 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
 import { Tabs } from "flowbite";
+import followingShop from "../module/following.js";
+import axios from "axios";
 
 const auth = getAuth();
 
 window.addEventListener('load', init);
+
+const followBtn = document.getElementById('followBtn');
+const loginAlert = () => {
+    window.alert('ログインしてください。');
+}
 
 function init() {
     initSchedule();
@@ -18,8 +25,59 @@ function init() {
     onAuthStateChanged(getAuth(), user => {
         if (user) {
             console.log('ログインしています。');
+            const shopId = followBtn.getAttribute('data-shop-id');
+            axios.post('/api/shop/follow/check', {
+                user_id: user.uid,
+                shop_id: shopId,
+            })
+                .then(res => {
+                    const followMethod = () => {
+                        const type = followBtn.getAttribute('data-type');
+                        const status = followingShop(shopId, user.uid, type);
+                        if (status !== 'error') {
+                            switch (type) {
+                                case 'following':
+                                    followBtn.classList.add('bg-pink-500');
+                                    followBtn.innerHTML = '<i class="bi bi-arrow-through-heart text-2xl text-pink-100 group-hover:text-pink-500"></i>';
+                                    followBtn.setAttribute('data-type', 'unfollowing');
+                                    window.alert('フォローしました。');
+                                    break;
+                                case 'unfollowing':
+                                    followBtn.classList.remove('bg-pink-500');
+                                    followBtn.innerHTML = '<i class="bi bi-heart-arrow mr-1 text-pink-500 group-hover:text-pink-100"></i><i class="bi bi-heart text-pink-500 group-hover:text-pink-100"></i>';
+                                    followBtn.setAttribute('data-type', 'following');
+                                    window.alert('フォローを解除しました。');
+                                    break;
+                            }
+                        } else {
+                            window.alert('エラーが発生しました。');
+                        }
+                    }
+                    followBtn.removeEventListener('click', loginAlert);
+                    switch (res.data.status) {
+                        case 'following':
+                            followBtn.classList.remove('bg-pink-100', 'hover:bg-pink-500');
+                            followBtn.classList.add('bg-pink-500', 'hover:bg-pink-100');
+                            followBtn.innerHTML = '<i class="bi bi-arrow-through-heart text-2xl text-pink-100 group-hover:text-pink-500"></i>';
+                            followBtn.setAttribute('data-type', 'unfollowing');
+                            break;
+                        case 'unfollowing':
+                            followBtn.classList.remove('bg-pink-500', 'hover:bg-pink-100');
+                            followBtn.classList.add('bg-pink-100', 'hover:bg-pink-500');
+                            followBtn.innerHTML = '<i class="bi bi-heart-arrow mr-1 text-pink-500 group-hover:text-pink-100"></i><i class="bi bi-heart text-pink-500 group-hover:text-pink-100"></i>';
+                            followBtn.setAttribute('data-type', 'following');
+                            break;
+                    }
+                    followBtn.addEventListener('click', followMethod);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
         } else {
+            followBtn.removeEventListener('click', followMethod);
             console.log('ログアウトしています。');
+            followBtn.innerHTML = 'i class="bi bi-heart-arrow mr-1 text-pink-500"></i><i class="bi bi-heart text-pink-500"></i>';
+            followBtn.addEventListener('click', loginAlert);
         }
     })
 }

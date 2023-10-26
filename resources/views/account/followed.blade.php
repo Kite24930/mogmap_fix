@@ -20,6 +20,6 @@
             </div>
         </div>
     </main>
-    <div class="hidden bg-yellow-50 border-yellow-300 p-4 rounded-lg gap-4 text-lg font-bold w-32 text-sm bg-green-100 border-green-500 text-green-500 hover:bg-green-500 hover:text-green-500 hover:border-green-100 transition duration-300 bg-pink-100 border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-pink-100 hover:border-pink-100 group group-hover:text-pink-100"></div>
+    <div class="hidden bg-yellow-50 border-yellow-300 p-4 rounded-lg gap-4 text-lg font-bold w-32 text-sm bg-green-100 border-green-500 text-green-500 hover:bg-green-500 hover:text-green-500 hover:border-green-100 transition duration-300 bg-pink-100 border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-pink-100 hover:border-pink-100 group group-hover:text-pink-100 hover:text-green-100"></div>
     @vite(['resources/js/account/followed.js'])
 </x-template>

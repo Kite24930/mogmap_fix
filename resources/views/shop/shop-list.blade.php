@@ -24,7 +24,7 @@
             </div>
         </div>
     </main>
-    <div class="hidden"></div>
+    <div class="hidden bg-pink-500 hover:bg-pink-500 hover:bg-pink-100 hover:text-pink-500 bg-pink-100 hover:text-pink-100"></div>
     <script>
         window.Laravel = {};
         window.Laravel.shop_lists = @json($shop_lists);
