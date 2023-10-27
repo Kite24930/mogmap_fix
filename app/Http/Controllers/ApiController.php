@@ -30,8 +30,9 @@ class ApiController extends Controller
             'user_name' => $customer->user_name,
         ];
         if ($account->status == 3) {
-            $shops = ShopList::where('shop_id', $customer->user_id)->get();
-            $data['shops'] = $shops;
+            $shops = ShopList::where('shop_id', $customer->user_id);
+            $data['shops'] = $shops->get();
+            $data['shop_id'] = $shops->pluck('id')->toArray();
         }
         return response()->json($data);
     }

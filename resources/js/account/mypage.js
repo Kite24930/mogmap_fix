@@ -42,11 +42,11 @@ function init() {
                                 shopPageLink.textContent = 'ショップページへ';
                                 const shopInfoLink = document.createElement('a');
                                 shopInfoLink.classList.add('shopInfoLink', 'px-4', 'py-2', 'text-sm', 'bg-blue-100', 'rounded', 'border', 'border-blue-500', 'text-blue-500', 'hover:bg-blue-500', 'hover:text-blue-100', 'hover:border-blue-100', 'transition', 'duration-300');
-                                shopInfoLink.href = '/shop/edit/' + shop.id;
+                                shopInfoLink.href = '/edit/shop/' + shop.id;
                                 shopInfoLink.textContent = '登録情報編集';
                                 const shopSetUpLink = document.createElement('a');
                                 shopSetUpLink.classList.add('shopOpenLink', 'px-4', 'py-2', 'text-sm', 'bg-pink-100', 'rounded', 'border', 'border-pink-500', 'text-pink-500', 'hover:bg-pink-500', 'hover:text-pink-100', 'hover:border-pink-100', 'transition', 'duration-300');
-                                shopSetUpLink.href = '/shop/setup/' + shop.id;
+                                shopSetUpLink.href = '/setup/register/' + shop.id;
                                 shopSetUpLink.textContent = '出店情報編集';
                                 shopItemInfoContainer.appendChild(shopPageLink);
                                 shopItemInfoContainer.appendChild(shopInfoLink);

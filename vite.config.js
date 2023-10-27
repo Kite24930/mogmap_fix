@@ -34,6 +34,7 @@ export default defineConfig({
                 mypage: 'resources/js/account/mypage.js',
                 followed: 'resources/js/account/followed.js',
                 accountEdit: 'resources/js/account/account-edit.js',
+                shopEdit: 'resources/js/shop/shop-edit.js',
                 foodsBond: 'resources/js/foods_bond.js',
                 foodsBondCss: 'resources/css/foods_bond.css',
                 footer: 'resources/js/footer.js',
