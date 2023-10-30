@@ -1,4 +1,4 @@
-<x-template title="マイページ" css="account.css">
+<x-template title="ショップ情報編集" css="account.css">
     <div id="loading">
         <div class="wrapper">
             <div class="loading-circle"></div>
@@ -149,7 +149,51 @@
                             <x-input-error :messages="$errors->get('pr_txt_3')" class="my-2" />
                         </div>
                     </div>
-                    <button id="submit" name="submit" class="fixed bottom-4 md:bottom-auto md:top-16 right-4 md:right-16 text-2xl px-4 py-2 bg-green-100 text-green-500 border border-green-500 rounded-lg ">保存する</button>
+                    <x-input-label class="mt-4"><x-any />メニュー</x-input-label>
+                    <input type="hidden" id="menu_count" name="menu_count" value="{{ $menus->count() }}">
+                    <div id="menuContainer" class="flex flex-col p-4 rounded-lg border">
+                        @foreach($menus as $menu)
+                            <div id="menuWrapper_{{ $menu->menu_id }}" class="flex flex-col gap-4 items-start md:items-center p-4 rounded-lg border w-full">
+                                <div class="flex w-full items-center gap-4">
+                                    <x-input-label class="mt-4">メニュー{{ $menu->menu_id }}</x-input-label>
+                                    <label>
+                                        @if($menu->menu_price === 0)
+                                            <x-text-input id="category_{{ $menu->menu_id }}" name="category_{{ $menu->menu_id }}" class="category-checkbox" data-toggle-target="price_{{ $menu->menu_id }}" type="checkbox" checked />
+                                        @else
+                                            <x-text-input id="category_{{ $menu->menu_id }}" name="category_{{ $menu->menu_id }}" class="category-checkbox" data-toggle-target="price_{{ $menu->menu_id }}" type="checkbox" />
+                                        @endif
+                                        カテゴリ名
+                                    </label>
+                                </div>
+                                <div class="flex flex-col md:flex-row gap-4 items-start md:items-center w-full ">
+                                    <x-text-input id="menu_{{ $menu->menu_id }}" name="menu_{{ $menu->menu_id }}" class="w-full max-w-md menu" value="{{ $menu->menu_name }}" placeholder="メニュー" />
+                                    @if($menu->menu_price === 0)
+                                        <x-text-input id="price_{{ $menu->menu_id }}" name="price_{{ $menu->menu_id }}" class="hidden w-full max-w-md price" value="0" placeholder="価格" />
+                                    @else
+                                        <x-text-input id="price_{{ $menu->menu_id }}" name="price_{{ $menu->menu_id }}" class="w-full max-w-md price" value="{{ $menu->menu_price }}" placeholder="価格" />
+                                    @endif
+                                    <x-primary-button class="menu-delete" data-target-num="{{ $menu->menu_id }}" type="button">削除</x-primary-button>
+                                </div>
+                            </div>
+                        @endforeach
+                        <div id="menuWrapper_{{ $menus->count() }}" class="flex flex-col gap-4 items-start md:items-center p-4 rounded-lg border w-full">
+                            <div class="flex w-full items-center gap-4">
+                                <x-input-label class="">メニュー{{ $menus->count() }}</x-input-label>
+                                <label>
+                                    <x-text-input id="category_{{ $menus->count() }}" name="category_{{ $menus->count() }}" class="category-checkbox" data-toggle-target="price_{{ $menus->count() }}" type="checkbox" />
+                                    カテゴリ名
+                                </label>
+                            </div>
+                            <div class="flex flex-col md:flex-row gap-4 items-start md:items-center w-full ">
+                                <x-text-input id="menu_{{ $menus->count() }}" name="menu_{{ $menus->count() }}" class="w-full max-w-md" value="" placeholder="メニュー名" />
+                                <x-text-input id="price_{{ $menus->count() }}" name="price_{{ $menus->count() }}" class="w-full max-w-md" value="" placeholder="価格" type="number" />
+                                <x-primary-button class="menu-delete" data-target-num="{{ $menus->count() }}" type="button">削除</x-primary-button>
+                            </div>
+                        </div>
+                    </div>
+                    <x-primary-button id="menuContainerAdd" type="button">メニュー欄追加</x-primary-button>
+                    <x-input-error :messages="$errors->get('menu')" class="my-2" />
+                    <button id="submit" name="submit" class="fixed bottom-4 md:bottom-auto md:top-16 right-4 md:right-16 text-2xl px-4 py-2 bg-green-100 text-green-500 border border-green-500 rounded-lg">保存する</button>
                 </form>
             </div>
         </div>

@@ -10,6 +10,7 @@ use App\Models\SetUpList;
 use App\Models\Shop;
 use App\Models\ShopList;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image as InterventionImage;
 
@@ -131,6 +132,7 @@ class MainController extends Controller
         $data = [
             'id' => $id,
             'shop' => ShopList::find($id),
+            'menus' => Menu::where('shop_id', $id)->orderBy('menu_id')->get(),
             'genres' => Genre::all(),
             'prefectures' => $this->prefectures,
             'csrf_token' => csrf_token(),
@@ -228,6 +230,7 @@ class MainController extends Controller
             'pr_txt_3' => $request->pr_txt_3,
         ];
         try {
+            DB::beginTransaction();
             $fileName = [
                 'shop_img' => null,
                 'pr_img_1' => null,
@@ -248,6 +251,18 @@ class MainController extends Controller
             $insertData['pr_img_2'] = $fileName['pr_img_2'];
             $insertData['pr_img_3'] = $fileName['pr_img_3'];
             Shop::updateOrCreate(['id' => $request->id], $insertData);
+            Menu::where('shop_id', $request->id)->delete();
+            for ($i = 0; $i < $request->menu_count + 1; $i++) {
+                if ($request->{'menu_'.$i} !== null) {
+                    Menu::create([
+                        'shop_id' => $request->id,
+                        'menu_id' => $i,
+                        'menu_name' => $request->{'menu_'.$i},
+                        'menu_price' => $request->{'price_'.$i},
+                    ]);
+                }
+            }
+            DB::commit();
             return redirect()->route('shop.edit', ['id' => $request->id])->with('success', '店舗情報を更新しました');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', '店舗情報の更新に失敗しました|'.$e->getMessage());

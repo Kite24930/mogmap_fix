@@ -58,6 +58,13 @@ const prTxt2 = document.getElementById('pr_txt_2');
 const prImg3 = document.getElementById('pr_img_3');
 const prImg3Preview = document.getElementById('pr_img_3_preview');
 const prTxt3 = document.getElementById('pr_txt_3');
+const menuContainer = document.getElementById('menuContainer');
+const menuCount = document.getElementById('menu_count');
+const menus = document.querySelectorAll('.menu');
+const prices = document.querySelectorAll('.price');
+const menuDeleteBtns = document.querySelectorAll('.menu-delete');
+const categoryCheckbox = document.querySelectorAll('.category-checkbox');
+const menuContainerAdd = document.getElementById('menuContainerAdd');
 
 genreId.addEventListener('change', (e) => {
     if (e.target.value === '0') {
@@ -99,4 +106,112 @@ prImg2.addEventListener('change', (e) => {
 prImg3.addEventListener('change', (e) => {
     const file = e.target.files[0];
     prImg3Preview.src = file ? URL.createObjectURL(file) : '';
+})
+
+categoryCheckbox.forEach(category => {
+    category.addEventListener('change', (e) => {
+        categoryApplicable(e);
+    })
+})
+
+function categoryApplicable(e) {
+    const target = e.target.getAttribute('data-toggle-target');
+    const targetEl = document.getElementById(target);
+    if (e.target.checked) {
+        targetEl.classList.add('hidden');
+        targetEl.value = 0;
+    } else {
+        targetEl.classList.remove('hidden');
+        targetEl.value = '';
+    }
+}
+
+menuDeleteBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        menuDelete(e);
+    })
+})
+
+function menuDelete(e) {
+    const targetNum = Number(e.target.getAttribute('data-target-num'));
+    const latestNum = Number(menuCount.value);
+    for (let i = targetNum; i < latestNum; i++) {
+        const pasteNum = i;
+        const copyNum = i + 1;
+        const pasteMenu = document.getElementById('menu_' + pasteNum);
+        const copyMenu = document.getElementById('menu_' + copyNum);
+        const pastePrice = document.getElementById('price_' + pasteNum);
+        const copyPrice = document.getElementById('price_' + copyNum);
+        const pasteCategory = document.getElementById('category_' + pasteNum);
+        const copyCategory = document.getElementById('category_' + copyNum);
+        pasteMenu.value = copyMenu.value;
+        pastePrice.value = copyPrice.value;
+        pasteCategory.checked = copyCategory.checked;
+        if (pasteCategory.checked) {
+            pastePrice.classList.add('hidden');
+        } else {
+            pastePrice.classList.remove('hidden');
+        }
+    }
+    document.getElementById('menuWrapper_' + latestNum).remove();
+    menuCount.value = latestNum - 1;
+}
+
+menuContainerAdd.addEventListener('click', () => {
+    if (document.getElementById('menu_' + menuCount.value).value !== '' && document.getElementById('price_' + menuCount.value).value !== '') {
+        const count = Number(menuCount.value) + 1;
+        const addContainer = document.createElement('div');
+        addContainer.classList.add('flex', 'flex-col', 'gap-4', 'items-start', 'md:items-center', 'p-4', 'rounded-lg', 'border', 'w-full');
+        const labelContainer = document.createElement('div');
+        labelContainer.classList.add('flex', 'gap-4', 'items-center', 'w-full');
+        const label = document.createElement('label');
+        label.classList.add('block', 'font-medium', 'text-sm', 'text-gray-700');
+        label.textContent = 'メニュー' + count;
+        const categoryContainer = document.createElement('label');
+        const category = document.createElement('input');
+        category.classList.add('border-gray-300', 'focus:border-indigo-500', 'focus:ring-indigo-500', 'rounded-md', 'shadow-sm', 'category-checkbox');
+        category.setAttribute('type', 'checkbox');
+        category.setAttribute('data-toggle-target', 'price_' + count);
+        category.id = 'category_' + count;
+        category.name = 'category_' + count;
+        category.textContent = ' カテゴリ名';
+        categoryContainer.appendChild(category);
+        categoryContainer.innerHTML += 'カテゴリ名';
+        labelContainer.appendChild(label);
+        labelContainer.appendChild(categoryContainer);
+        addContainer.appendChild(labelContainer);
+        const menuWrapper = document.createElement('div');
+        menuWrapper.classList.add('flex', 'flex-col', 'md:flex-row', 'gap-4', 'items-start', 'md:items-center', 'w-full');
+        const menu = document.createElement('input');
+        menu.classList.add('border-gray-300', 'focus:border-indigo-500', 'focus:ring-indigo-500', 'rounded-md', 'shadow-sm', 'w-full', 'max-w-md');
+        menu.setAttribute('type', 'text');
+        menu.id = 'menu_' + count;
+        menu.name = 'menu_' + count;
+        menu.placeholder = 'メニュー名';
+        const price = document.createElement('input');
+        price.classList.add('border-gray-300', 'focus:border-indigo-500', 'focus:ring-indigo-500', 'rounded-md', 'shadow-sm', 'w-full', 'max-w-md');
+        price.setAttribute('type', 'number');
+        price.id = 'price_' + count;
+        price.name = 'price_' + count;
+        price.placeholder = '価格';
+        const deleteBtn = document.createElement('button');
+        deleteBtn.classList.add('inline-flex', 'items-center', 'px-4', 'py-2', 'bg-gray-800', 'border', 'border-transparent', 'rounded-md', 'font-semibold', 'text-xs', 'text-white', 'uppercase', 'tracking-widest', 'hover:bg-gray-700', 'focus:bg-gray-700', 'active:bg-gray-900', 'focus:outline-none', 'focus:ring-2', 'focus:ring-indigo-500', 'focus:ring-offset-2', 'transition', 'ease-in-out', 'duration-150', 'menu-delete');
+        deleteBtn.setAttribute('type', 'button');
+        deleteBtn.setAttribute('data-target-num', count);
+        deleteBtn.textContent = '削除';
+        deleteBtn.addEventListener('click', (e) => {
+            menuDelete(e);
+        })
+        menuWrapper.appendChild(menu);
+        menuWrapper.appendChild(price);
+        menuWrapper.appendChild(deleteBtn);
+        addContainer.appendChild(menuWrapper);
+        menuContainer.appendChild(addContainer);
+        document.getElementById('category_' + count).addEventListener('change', (e) => {
+            categoryApplicable(e);
+        });
+        menuCount.value = count;
+    } else {
+        window.alert('一番下の欄にメニュー名と価格を入力してください。');
+    }
 })
