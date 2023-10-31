@@ -133,7 +133,7 @@
                                         <x-foods_bond.visiter-card shopName="次男の焼きおにぎり" shopImg="tsugio.JPG" instagram="tsugio_no_yakionigiri" targetDate="11/16(Thu)" appeal="焼きおにぎり🍙" />
                                     </div>
                                     <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
-                                        <x-foods_bond.visiter-card shopName="Lansen" shopImg="lansen.JPG" instagram="kitchenbus.lansen" targetDate="11/28(Tue)" appeal="ハンバーガー🍔" />
+                                        <x-foods_bond.visiter-card shopName="Lansen" shopImg="lansen.jpg" instagram="kitchenbus.lansen" targetDate="11/28(Tue)" appeal="ハンバーガー🍔" />
                                     </div>
                                     <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
                                         <x-foods_bond.shop-card :data="$shop_lists->find(14)" targetDate="11/30(Thu)" appeal="コロッケ🥔" />
