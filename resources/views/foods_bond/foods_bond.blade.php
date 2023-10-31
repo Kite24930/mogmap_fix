@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="flex flex-col w-full justify-center items-center p-4 gap-6">
-            <div id="October" class="flex flex-col w-full justify-center items-center bg-white rounded-lg border border-blue-900">
+            <div id="October" class="hidden flex-col w-full justify-center items-center bg-white rounded-lg border border-blue-900">
                 <p class="text-6xl font-bold ja-display-font">October</p>
                 <hr>
                 <div class="flex flex-col md:flex-row w-full justify-evenly items-center p-0 md:p-4">
