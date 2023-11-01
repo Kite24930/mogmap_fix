@@ -296,6 +296,10 @@ class MainController extends Controller
         return view('firebase.register');
     }
 
+    public function password_reset() {
+        return view('firebase.password-reset');
+    }
+
     public function terms() {
         return view('footer.terms');
     }

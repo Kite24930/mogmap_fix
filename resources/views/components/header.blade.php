@@ -26,7 +26,8 @@
                 <div class="flex justify-center items-center py-2">
                     <x-primary-button type="button" data-target-email="spLoginEmail" data-target-password="spLoginPassword" class="login-btn">ログイン</x-primary-button>
                 </div>
-                <div class="flex justify-center items-center py-2">
+                <div class="flex justify-center items-center py-2 gap-4">
+                    <a href="{{ route('password.reset') }}" class="underline">パスワードの再設定はこちら</a>
                     <a href="{{ route('firebase.register') }}" class="underline">新規登録はこちら</a>
                 </div>
             </form>

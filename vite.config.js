@@ -37,6 +37,7 @@ export default defineConfig({
                 shopEdit: 'resources/js/shop/shop-edit.js',
                 shopSetup: 'resources/js/shop/shop-setup.js',
                 register: 'resources/js/firebase/register.js',
+                passwordReset: 'resources/js/firebase/password-reset.js',
                 foodsBond: 'resources/js/foods_bond.js',
                 foodsBondCss: 'resources/css/foods_bond.css',
                 footer: 'resources/js/footer.js',
