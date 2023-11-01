@@ -35,6 +35,7 @@ export default defineConfig({
                 followed: 'resources/js/account/followed.js',
                 accountEdit: 'resources/js/account/account-edit.js',
                 shopEdit: 'resources/js/shop/shop-edit.js',
+                shopSetup: 'resources/js/shop/shop-setup.js',
                 foodsBond: 'resources/js/foods_bond.js',
                 foodsBondCss: 'resources/css/foods_bond.css',
                 footer: 'resources/js/footer.js',

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\EventList;
+use App\Models\FavoriteList;
 use App\Models\Genre;
 use App\Models\Menu;
+use App\Models\Place;
 use App\Models\SameList;
 use App\Models\SetUpList;
 use App\Models\Shop;
@@ -269,11 +271,23 @@ class MainController extends Controller
         }
     }
 
-    public function shop_setup($id) {
+    public function shop_setup($id, Request $request) {
         $data = [
-            'shop' => ShopList::find($id),
+            'id' => $id,
+            'setup_lists' => SetUpList::where('shop_id', $id)->whereDate('date', '>=', date('Y-m-d'))->orderBy('date')->get(),
+            'event_lists' => EventList::whereDate('event_date', '>=', date('Y-m-d'))->orderBy('event_date')->get(),
+            'favorite_lists' => FavoriteList::where('shop_id', $id)->get(),
+            'places' => Place::where('status', 1)->get(),
             'csrf_token' => csrf_token(),
         ];
+        if ($request->session()->has('success')) {
+            $data['success'] = $request->session()->get('success');
+            $request->session()->forget('success');
+        }
+        if ($request->session()->has('error')) {
+            $data['error'] = $request->session()->get('error');
+            $request->session()->forget('error');
+        }
         return view('shop.shop-setup', $data);
     }
 

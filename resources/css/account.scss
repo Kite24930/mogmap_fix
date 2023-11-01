@@ -18,3 +18,24 @@
         object-fit: cover;
     }
 }
+
+#calendar {
+    .fc-day {
+        &.selected {
+            background-color: lightcyan;
+        }
+    }
+    .fc-toolbar-title {
+        font-family: 'Darumadrop One', cursive;
+        font-size: 2rem;
+        span {
+            font-family: 'Darumadrop One', cursive;
+            font-size: 2rem;
+        }
+    }
+    .fc-header-toolbar {
+        @media (max-width: 768px) {
+            margin-bottom: 0.5rem;
+        }
+    }
+}

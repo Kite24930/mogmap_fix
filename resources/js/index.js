@@ -351,7 +351,7 @@ function setMarkers(targetDate) {
         icon.classList.add('bi', 'bi-info-square-fill', 'text-2xl', 'text-yellow-300');
         let message = document.createElement('p');
         message.classList.add('text-sm');
-        if (new Date(targetDate) < new Date()) {
+        if (new Date(targetDate) < new Date().setHours(0, 0, 0, 0)) {
             message.textContent = '過去の日付は表示できません';
         } else {
             message.textContent = 'この日には出店がありません';
@@ -556,12 +556,13 @@ function initCalendar() {
                 if (selected) selected.classList.remove('selected');
                 target.classList.add('selected');
                 document.querySelector('.fc-toolbar-date').textContent = '-' + new Date(targetDate).getDate().toString();
-                if (MarkerClusterer) markerClusterer.clearMarkers();
+                if (markerClusterer) markerClusterer.clearMarkers();
                 setMarkers(targetDate);
                 initList(targetDate);
             })
         });
     }
+    const today = new Date().getFullYear() + '-' + (new Date().getMonth() + 1).toString().padStart(2, '0') + '-' + new Date().getDate().toString().padStart(2, '0')
     const calendarEl = document.getElementById('calendar');
     const calendar = new Calendar(calendarEl, {
         plugins: [dayGridPlugin],
@@ -588,12 +589,12 @@ function initCalendar() {
             right: 'customNext',
         },
         titleFormat: { month: 'long' },
-        initialDate: new Date(),
+        initialDate: today,
         events: events,
         timeZone: 'Asia/Tokyo',
     })
     calendar.render();
-    document.querySelector('.fc-day[data-date="' + new Date().toISOString().slice(0, 10) + '"]').classList.add('selected');
+    document.querySelector('.fc-day[data-date="' + today + '"]').classList.add('selected');
     const toolbarDate = document.createElement('span');
     toolbarDate.classList.add('fc-toolbar-date');
     document.querySelector('.fc-toolbar-title').appendChild(toolbarDate);

@@ -26,6 +26,7 @@
         "bootstrap-icons": "^1.11.1",
         "firebase": "^10.5.0",
         "flowbite": "^1.8.1",
+        "geolib": "^3.3.4",
         "resize-observer-polyfill": "^1.5.1",
         "simplebar": "^6.2.5",
         "swiper": "^10.3.1"

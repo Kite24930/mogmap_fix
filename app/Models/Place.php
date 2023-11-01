@@ -14,5 +14,6 @@ class Place extends Model
         'address',
         'lat',
         'lng',
+        'status',
     ];
 }

@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Account;
 use App\Models\Costomer;
+use App\Models\Event;
 use App\Models\Follow;
 use App\Models\FollowList;
+use App\Models\Place;
+use App\Models\SetUp;
 use App\Models\ShopList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -98,6 +101,142 @@ class ApiController extends Controller
             $customer->update([
                 'user_name' => $request->user_name,
             ]);
+            DB::commit();
+            return response()->json([
+                'msg' => 'ok',
+            ]);
+        } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json([
+                'msg' => 'ng',
+                'error' => $e->getMessage(),
+            ]);
+        }
+    }
+
+    public function setup_register(Request $request) {
+        $request->validate([
+            'shop_id' => 'required',
+            'date' => 'required',
+            'place_id' => 'required',
+            'event_id' => 'nullable',
+        ],
+            [
+            'shop_id.required' => '店舗IDがありません',
+            'date.required' => '日付がありません',
+            'place_id.required' => '場所がありません',
+        ]);
+
+        try {
+            DB::beginTransaction();
+            if ($request->place_id === 0) {
+                $place_id = Place::create([
+                    'place_name' => $request->place_name,
+                    'address' => $request->address,
+                    'lat' => $request->lat,
+                    'lng' => $request->lng,
+                    'status' => 1,
+                ])->id;
+            } else {
+                $place_id = $request->place_id;
+            }
+            if ($request->event_id === -1) {
+                $event_id = Event::create([
+                    'event_name' => $request->event_name,
+                    'event_date' => $request->date[0],
+                    'event_place_num' => $place_id,
+                ])->id;
+            } else {
+                $event_id = $request->event_id;
+            }
+            $results = [];
+            if (isset($request->setup_id)) {
+                foreach ($request->date as $date) {
+                    $results[] = SetUp::find($request->setup_id)->update([
+                        'shop_id' => $request->shop_id,
+                        'date' => $date,
+                        'place_id' => $place_id,
+                        'event_id' => $event_id,
+                        'start_time' => $request->start_time,
+                        'end_time' => $request->end_time,
+                        'comment' => $request->comment,
+                        'status' => 1,
+                    ]);
+                }
+            } else {
+                foreach ($request->date as $date) {
+                    $results[] = SetUp::create([
+                        'shop_id' => $request->shop_id,
+                        'date' => $date,
+                        'place_id' => $place_id,
+                        'event_id' => $event_id,
+                        'start_time' => $request->start_time,
+                        'end_time' => $request->end_time,
+                        'comment' => $request->comment,
+                        'status' => 1,
+                    ]);
+                }
+            }
+            DB::commit();
+            return response()->json([
+                'msg' => 'ok',
+                'results' => $results,
+                'request' => $request->all(),
+            ]);
+        } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json([
+                'msg' => 'ng',
+                'error' => $e->getMessage(),
+            ]);
+        }
+    }
+
+    public function setup_canceled(Request $request) {
+        try {
+            DB::beginTransaction();
+            $setup = SetUp::find($request->setup_id);
+            $setup->update([
+                'status' => 0,
+            ]);
+            DB::commit();
+            return response()->json([
+                'msg' => 'ok',
+            ]);
+        } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json([
+                'msg' => 'ng',
+                'error' => $e->getMessage(),
+            ]);
+        }
+    }
+
+    public function setup_cancellation(Request $request) {
+        try {
+            DB::beginTransaction();
+            $setup = SetUp::find($request->setup_id);
+            $setup->update([
+                'status' => 1,
+            ]);
+            DB::commit();
+            return response()->json([
+                'msg' => 'ok',
+            ]);
+        } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json([
+                'msg' => 'ng',
+                'error' => $e->getMessage(),
+            ]);
+        }
+    }
+
+    public function setup_deleted(Request $request) {
+        try {
+            DB::beginTransaction();
+            $setup = SetUp::find($request->setup_id);
+            $setup->delete();
             DB::commit();
             return response()->json([
                 'msg' => 'ok',

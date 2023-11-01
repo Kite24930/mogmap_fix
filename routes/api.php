@@ -23,3 +23,7 @@ Route::post('/followedGet', [ApiController::class, 'followedGet'])->name('follow
 Route::post('/shop/follow/check', [ApiController::class, 'followCheck'])->name('shop.follow.check');
 Route::post('/shop/follow', [ApiController::class, 'follow'])->name('shop.follow');
 Route::post('/account/name', [ApiController::class, 'accountName'])->name('account.name');
+Route::post('/setup/register', [ApiController::class, 'setup_register'])->name('setup.register');
+Route::post('/setup/canceled', [ApiController::class, 'setup_canceled'])->name('setup.canceled');
+Route::post('/setup/cancellation', [ApiController::class, 'setup_cancellation'])->name('setup.cancellation');
+Route::post('/setup/delete', [ApiController::class, 'setup_deleted'])->name('setup.delete');
