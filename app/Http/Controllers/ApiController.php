@@ -249,4 +249,30 @@ class ApiController extends Controller
             ]);
         }
     }
+
+    public function user_register(Request $request) {
+        try {
+            DB::beginTransaction();
+            $solt = bin2hex(random_bytes(5));
+            $account = Account::create([
+                'uid' => hash('sha256', $request->uid),
+                'solt' => $solt,
+                'status' => 1,
+            ]);
+            $costomer = Costomer::create([
+                'user_id' => hash('sha256', $solt.$request->uid),
+                'user_name' => $request->user_name,
+            ]);
+            DB::commit();
+            return response()->json([
+                'msg' => 'ok',
+            ]);
+        } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json([
+                'msg' => 'ng',
+                'error' => $e->getMessage(),
+            ]);
+        }
+    }
 }
