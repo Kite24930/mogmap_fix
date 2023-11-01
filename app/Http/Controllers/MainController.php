@@ -239,7 +239,7 @@ class MainController extends Controller
                 'pr_img_2' => null,
                 'pr_img_3' => null,
             ];
-            $shop_hash_id = $shop->shop_hash_id;
+            $shop_hash_id = $shop->shop_id;
             $shop_num = $shop->shop_num;
             foreach ($files as $index => $file) {
                 if ($request->file($file) !== null) {
