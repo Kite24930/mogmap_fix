@@ -29,20 +29,47 @@ class ApiController extends Controller
             ]);
         }
         $customer = Costomer::where('user_id', hash('sha256', $account->solt.$request->uid))->first();
-        $data = [
-            'status' => 'ok',
-            'user_name' => $customer->user_name,
-        ];
-        if ($account->status == 3) {
-            $shops = ShopList::where('shop_id', $customer->user_id);
-            $data['shops'] = $shops->get();
-            $data['shop_id'] = $shops->pluck('id')->toArray();
+        if (isset($customer)) {
+            $data = [
+                'status' => 'ok',
+                'user_name' => $customer->user_name,
+            ];
+            if ($account->status == 3) {
+                $shops = ShopList::where('shop_id', $customer->user_id);
+                $data['shops'] = $shops->get();
+                $data['shop_id'] = $shops->pluck('id')->toArray();
+            }
+        } else {
+            $data = [
+                'status' => 'new',
+            ];
         }
         if ($customer->user_id == '005de4d18b61fe36e14693cf32e923c8c96d61d3fa4a14019e250d671a9b94ce') {
             $data['admin'] = true;
             $data['information'] = Information::all();
         }
         return response()->json($data);
+    }
+
+    public function userNameUpdate(Request $request) {
+        try {
+            $account = Account::where('uid', hash('sha256', $request->uid))->first();
+            $customer = Costomer::updateOrCreate(
+                [
+                    'user_id' => hash('sha256', $account->solt.$request->uid),
+                ],
+                [
+                    'user_name' => $request->user_name,
+                ]);
+            return response()->json([
+                'status' => 'ok',
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'ng',
+                'error' => $e->getMessage(),
+            ]);
+        }
     }
 
     public function followedGet(Request $request) {

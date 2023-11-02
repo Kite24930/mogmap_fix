@@ -92,6 +92,26 @@ function init() {
                                 contentsContainer.appendChild(shopContainer);
                             });
                         }
+                    } else if (res.data.status === 'new') {
+                        let userName = window.prompt('ユーザー名が欠落しています。\n登録するユーザー名を入力してください。');
+                        if (userName !== null) {
+                            axios.post('/api/userNameUpdate', { uid: uid, user_name: userName, _token: token })
+                                .then(res => {
+                                    console.log(res.data);
+                                    if (res.data.msg === 'ok') {
+                                        window.alert('ユーザー名を登録しました。');
+                                        window.location.reload();
+                                    } else {
+                                        window.alert('ユーザー名の登録に失敗しました。');
+                                    }
+                                })
+                                .catch(err => {
+                                    console.log(err);
+                                });
+                        } else {
+                            window.alert('ユーザー名を入力してください。');
+                            window.location.reload();
+                        }
                     }
                     loading.style.opacity = 0;
                     setTimeout(() => {

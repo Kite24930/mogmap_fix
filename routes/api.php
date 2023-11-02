@@ -19,6 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('/accountVerification', [ApiController::class, 'accountVerification'])->name('accountVerification');
+Route::post('/userNameUpdate', [ApiController::class, 'userNameUpdate'])->name('userNameUpdate');
 Route::post('/followedGet', [ApiController::class, 'followedGet'])->name('followedGet');
 Route::post('/shop/follow/check', [ApiController::class, 'followCheck'])->name('shop.follow.check');
 Route::post('/shop/follow', [ApiController::class, 'follow'])->name('shop.follow');
