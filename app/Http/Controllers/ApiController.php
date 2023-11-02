@@ -62,11 +62,11 @@ class ApiController extends Controller
                     'user_name' => $request->user_name,
                 ]);
             return response()->json([
-                'status' => 'ok',
+                'msg' => 'ok',
             ]);
         } catch (\Exception $e) {
             return response()->json([
-                'status' => 'ng',
+                'msg' => 'ng',
                 'error' => $e->getMessage(),
             ]);
         }
