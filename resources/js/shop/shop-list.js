@@ -60,7 +60,7 @@ function initFollow() {
             })
                 .then(res => {
                     console.log(res.data);
-                    const followMethod = (e) => {
+                    function followMethod(e)  {
                         const type = e.target.getAttribute('data-type');
                         const shopId = e.target.getAttribute('data-shop-id');
                         const status = followingShop(shopId, user.uid, type);
