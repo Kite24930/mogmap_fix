@@ -18,8 +18,10 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(UrlGenerator $url): void
+    public function boot(): void
     {
-        $url->forceScheme('https');
+        if (\App::environment('production')) {
+            \URL::forceScheme('https');
+        }
     }
 }
