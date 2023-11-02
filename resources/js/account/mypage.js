@@ -1,9 +1,15 @@
 import '../common.js';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import axios from "axios";
+import Editor from "@toast-ui/editor";
+import ColorSyntax from "@toast-ui/editor-plugin-color-syntax";
+import "@toast-ui/editor/dist/toastui-editor.css";
+import "@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-syntax.css";
 
 window.addEventListener('load', init);
 const contentsContainer = document.getElementById('contentsContainer');
+
+let editor;
 
 function init() {
     const loading = document.getElementById('loading');
@@ -14,11 +20,39 @@ function init() {
             const uid = user.uid;
             axios.post('/api/accountVerification', { uid: uid, _token: token })
                 .then(res => {
-                    // console.log(res.data);
+                    console.log(res.data);
                     if (res.data.status === 'ok') {
                         document.getElementById('userName').textContent = res.data.user_name;
                         const email = user.email.split('@');
                         document.getElementById('userEmail').textContent = email[0].slice(0, 3) + '****@' + email[1].slice(0, 3) + '****';
+                        const editorWrapper = document.getElementById('editorWrapper');
+                        const editorEl = document.getElementById('editor');
+                        if (typeof res.data.admin !== 'undefined') {
+                            editor = new Editor({
+                                el: editorEl,
+                                height: '500px',
+                                initialValue: res.data.information[0].content,
+                                previewStyle: 'vertical',
+                                plugins: [[ColorSyntax, { theme: 'monokai' }]],
+                            })
+                            document.getElementById('informationUpdate').addEventListener('click', () => {
+                                axios.post('/api/informationUpdate', { markdown: editor.getMarkdown(), _token: token })
+                                    .then(res => {
+                                        console.log(res.data);
+                                        if (res.data.msg === 'ok') {
+                                            window.alert('お知らせを更新しました。');
+                                            window.location.reload();
+                                        } else {
+                                            window.alert('お知らせの更新に失敗しました。');
+                                        }
+                                    })
+                                    .catch(err => {
+                                        console.log(err);
+                                    });
+                            });
+                        } else {
+                            editorWrapper.remove();
+                        }
                         if (typeof res.data.shops !== 'undefined') {
                             res.data.shops.forEach(shop => {
                                 const shopContainer = document.createElement('div');

@@ -17,6 +17,12 @@
                 <h2 class="text-2xl"><i class="bi bi-person-circle mr-2"></i><span id="userName"></span> さん</h2>
                 <p>登録メールアドレス：<span id="userEmail"></span></p>
                 <a href="{{ route('account.edit') }}" class="px-4 py-2 bg-yellow-100 border border-yellow-500 rounded text-yellow-500 text-sm my-2 hover:bg-yellow-500 hover:border-yellow-100 hover:text-yellow-100">アカウントを編集する</a>
+                <div id="editorWrapper" class="">
+                    <div id="editor" class="">
+
+                    </div>
+                    <x-primary-button id="informationUpdate">お知らせ更新</x-primary-button>
+                </div>
             </div>
         </div>
     </main>

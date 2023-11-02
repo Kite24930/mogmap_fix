@@ -28,3 +28,4 @@ Route::post('/setup/canceled', [ApiController::class, 'setup_canceled'])->name('
 Route::post('/setup/cancellation', [ApiController::class, 'setup_cancellation'])->name('setup.cancellation');
 Route::post('/setup/delete', [ApiController::class, 'setup_deleted'])->name('setup.delete');
 Route::post('/user/register', [ApiController::class, 'user_register'])->name('user.register');
+Route::post('/informationUpdate', [ApiController::class, 'information_update'])->name('informationUpdate');

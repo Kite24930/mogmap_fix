@@ -5,6 +5,8 @@ import { MarkerClusterer } from "@googlemaps/markerclusterer";
 import { Calendar } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import SimpleBar from "simplebar";
+import Editor from "@toast-ui/editor";
+import "@toast-ui/editor/dist/toastui-editor-viewer.css"
 
 window.addEventListener('load', init);
 let map, infoWindow, markerClusterer;
@@ -14,6 +16,7 @@ function init() {
     initMap(Laravel.date);
     initList(Laravel.date);
     initCalendar();
+    initInformation();
     const loading = document.getElementById('loading');
     loading.style.opacity = 0;
     setTimeout(() => {
@@ -609,3 +612,13 @@ document.querySelectorAll('.tab-btn').forEach((btn) => {
         e.target.classList.add('active');
     });
 });
+
+let viewer;
+function initInformation() {
+    const viewerEl = document.getElementById('viewer');
+    viewer = new Editor.factory({
+        el: viewerEl,
+        viewer: true,
+        initialValue: Laravel.information.content,
+    });
+}

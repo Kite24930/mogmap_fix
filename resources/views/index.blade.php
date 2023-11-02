@@ -12,6 +12,9 @@
     </div>
     <main class="flex flex-col justify-center items-start pt-20 md:pt-0 md:pl-[240px] min-h-[100dvh] @switch(date('m')) @case(1)winter @break @case(2)winter @break @case(3)spring @break @case(4)spring @break @case(5)spring @break @case(6)summer @break @case(7)summer @break @case(8)summer @break @case(9)autumn @break @case(10)autumn @break @case(11)autumn @break @case(12)winter @break @endswitch">
         <div id="container" class="w-full min-h-[100dvh] md:p-6">
+            <div id="viewer" class="w-full h-[10rem] overflow-auto bg-white p-4 rounded-lg border border-green-500 mb-4">
+
+            </div>
             <div class="rounded-lg p-4 bg-white border border-gray-500 flex flex-col md:flex-row justify-between relative">
                 <div class="w-full md:w-1/2 h-[60vh] md:h-[600px]">
                     <div>
@@ -50,6 +53,7 @@
         window.Laravel.date = @json($date);
         window.Laravel.events = @json($events);
         window.Laravel.same_lists = @json($same_lists);
+        window.Laravel.information = @json($information);
         console.log(Laravel);
     </script>
     @vite(['resources/js/index.js'])

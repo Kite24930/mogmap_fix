@@ -7,6 +7,7 @@ use App\Models\Costomer;
 use App\Models\Event;
 use App\Models\Follow;
 use App\Models\FollowList;
+use App\Models\Information;
 use App\Models\Place;
 use App\Models\SetUp;
 use App\Models\ShopList;
@@ -36,6 +37,10 @@ class ApiController extends Controller
             $shops = ShopList::where('shop_id', $customer->user_id);
             $data['shops'] = $shops->get();
             $data['shop_id'] = $shops->pluck('id')->toArray();
+        }
+        if ($customer->user_id == '005de4d18b61fe36e14693cf32e923c8c96d61d3fa4a14019e250d671a9b94ce') {
+            $data['admin'] = true;
+            $data['information'] = Information::all();
         }
         return response()->json($data);
     }
@@ -262,6 +267,27 @@ class ApiController extends Controller
             $costomer = Costomer::create([
                 'user_id' => hash('sha256', $solt.$request->uid),
                 'user_name' => $request->user_name,
+            ]);
+            DB::commit();
+            return response()->json([
+                'msg' => 'ok',
+            ]);
+        } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json([
+                'msg' => 'ng',
+                'error' => $e->getMessage(),
+            ]);
+        }
+    }
+
+    public function information_update(Request $request) {
+        try {
+            DB::beginTransaction();
+            $information = Information::find(1);
+            $information->update([
+                'content' => $request->markdown,
+                'date' => date('Y-m-d'),
             ]);
             DB::commit();
             return response()->json([

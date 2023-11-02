@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\EventList;
 use App\Models\FavoriteList;
 use App\Models\Genre;
+use App\Models\Information;
 use App\Models\Menu;
 use App\Models\Place;
 use App\Models\SameList;
@@ -73,7 +74,8 @@ class MainController extends Controller
         $data = [
             'set_ups' => SetUpList::whereDate('date', '>=', date('Y-m-d'))->orderBy('date')->get(),
             'events' => EventList::whereDate('event_date', '>=', date('Y-m-d'))->orderBy('event_date')->get(),
-            'same_lists' => SameList::whereDate('date', '>=', date('Y-m-d'))->where('count', '>', 1)->orderBy('date')->get()
+            'same_lists' => SameList::whereDate('date', '>=', date('Y-m-d'))->where('count', '>', 1)->orderBy('date')->get(),
+            'information' => Information::first(),
         ];
         if ($request->has('date')) {
             $data['date'] = $request->date;
@@ -94,7 +96,7 @@ class MainController extends Controller
     public function shop_list()
     {
         $data = [
-            'shop_lists' => ShopList::where('status', 1)->get(),
+            'shop_lists' => ShopList::where('status', 1)->orderBy('id')->get(),
         ];
         return view('shop.shop-list', $data);
     }
