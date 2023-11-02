@@ -31,7 +31,7 @@
                             <i class="bi bi-plus text-2xl"></i>
                         </button>
                     </h2>
-                    <div id="accordion-collapse-body-2" class="hidden transition duration-300" aria-labelledby="accordion-collapse-heading-2">
+                    <div id="accordion-collapse-body-2" class="hidden transition duration-300 h-[60dvh] overflow-auto" aria-labelledby="accordion-collapse-heading-2">
                         <div class="p-5 border rounded-b-lg border-gray-200">
                             <div id="detailed-pricing" class="w-full overflow-x-auto">
                                 <div class="overflow-hidden min-w-max">
@@ -72,10 +72,10 @@
                         </div>
                     </div>
                 </div>
-                <form action="{{ route('setup.register', $id) }}" method="POST" enctype="multipart/form-data" class="w-full max-w-4xl flex justify-center items-center my-4 mx-auto p-4 border rounded-lg">
+                <form action="{{ route('setup.register', $id) }}" method="POST" enctype="multipart/form-data" class="w-full max-w-4xl flex justify-center items-center my-4 mx-auto py-4 px-0 md:p-4 border rounded-lg">
                     @csrf
-                    <div class="w-full max-w-4xl p-4 flex flex-col items-center">
-                        <div id="calendar" class="w-full border p-4 rounded-lg max-w-xl">
+                    <div class="w-full max-w-4xl py-4 px-2 md:p-4 flex flex-col items-center">
+                        <div id="calendar" class="w-full h-[100dvw] md:h-auto border py-4 px-2 md:p-4 rounded-lg max-w-xl">
 
                         </div>
                         <div id="time" class="py-4 flex flex-col items-center gap-2 p-4 rounded-lg border w-full max-w-xl">

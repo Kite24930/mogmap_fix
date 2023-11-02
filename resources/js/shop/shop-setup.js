@@ -270,7 +270,7 @@ placeSearchBtn.addEventListener('click', () => {
                     map: map,
                     icon: {
                         url: '/storage/data/standard_pin.png',
-                        scaledSize: new google.maps.Size(50, 50)
+                        scaledSize: new google.maps.Size(50, 58)
                     },
                     animation: google.maps.Animation.DROP,
                     draggable: true,
@@ -318,7 +318,7 @@ placeSearchBtn.addEventListener('click', () => {
                                 map: map,
                                 icon: {
                                     url: '/storage/data/standard_pin.png',
-                                    scaledSize: new google.maps.Size(50, 50)
+                                    scaledSize: new google.maps.Size(50, 58)
                                 },
                                 animation: google.maps.Animation.DROP,
                                 draggable: true,
@@ -364,7 +364,7 @@ placeSearchBtn.addEventListener('click', () => {
             map: map,
             icon: {
                 url: '/storage/data/standard_pin.png',
-                scaledSize: new google.maps.Size(50, 50)
+                scaledSize: new google.maps.Size(50, 58)
             },
             animation: google.maps.Animation.DROP,
             draggable: true,
@@ -399,7 +399,7 @@ placeSearchBtn.addEventListener('click', () => {
                     map: map,
                     icon: {
                         url: '/storage/data/standard_pin.png',
-                        scaledSize: new google.maps.Size(50, 50)
+                        scaledSize: new google.maps.Size(50, 58)
                     },
                     animation: google.maps.Animation.DROP,
                     draggable: true,
@@ -450,7 +450,7 @@ addressSearchBtn.addEventListener('click', () => {
                 map: map,
                 icon: {
                     url: '/storage/data/standard_pin.png',
-                    scaledSize: new google.maps.Size(50, 50)
+                    scaledSize: new google.maps.Size(50, 58)
                 },
                 animation: google.maps.Animation.DROP,
                 draggable: true,
@@ -494,7 +494,7 @@ addressSearchBtn.addEventListener('click', () => {
                             map: map,
                             icon: {
                                 url: '/storage/data/standard_pin.png',
-                                scaledSize: new google.maps.Size(50, 50)
+                                scaledSize: new google.maps.Size(50, 58)
                             },
                             animation: google.maps.Animation.DROP,
                             draggable: true,
@@ -657,7 +657,7 @@ scheduleEditBtns.forEach(btn => {
             map: map,
             icon: {
                 url: '/storage/data/standard_pin.png',
-                scaledSize: new google.maps.Size(50, 50)
+                scaledSize: new google.maps.Size(50, 58)
             },
             animation: google.maps.Animation.DROP,
             draggable: true,
