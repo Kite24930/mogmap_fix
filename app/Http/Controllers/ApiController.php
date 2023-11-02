@@ -39,14 +39,14 @@ class ApiController extends Controller
                 $data['shops'] = $shops->get();
                 $data['shop_id'] = $shops->pluck('id')->toArray();
             }
+            if ($customer->user_id == '005de4d18b61fe36e14693cf32e923c8c96d61d3fa4a14019e250d671a9b94ce') {
+                $data['admin'] = true;
+                $data['information'] = Information::all();
+            }
         } else {
             $data = [
                 'status' => 'new',
             ];
-        }
-        if ($customer->user_id == '005de4d18b61fe36e14693cf32e923c8c96d61d3fa4a14019e250d671a9b94ce') {
-            $data['admin'] = true;
-            $data['information'] = Information::all();
         }
         return response()->json($data);
     }
