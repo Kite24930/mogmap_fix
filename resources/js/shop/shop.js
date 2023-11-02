@@ -7,6 +7,7 @@ import followingShop from "../module/following.js";
 import axios from "axios";
 
 const auth = getAuth();
+let followMethod;
 
 window.addEventListener('load', init);
 
@@ -31,7 +32,7 @@ function init() {
                 shop_id: shopId,
             })
                 .then(res => {
-                    const followMethod = () => {
+                    followMethod = () => {
                         const type = followBtn.getAttribute('data-type');
                         const status = followingShop(shopId, user.uid, type);
                         if (status !== 'error') {

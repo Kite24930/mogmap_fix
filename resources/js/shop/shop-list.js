@@ -6,7 +6,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import followingShop from "../module/following.js";
 
 window.addEventListener('load', init);
-let map, infoWindow, markerClusterer, calendar;
+let map, infoWindow, markerClusterer, calendar, followMethod;
 
 function init() {
     initList();
@@ -60,7 +60,7 @@ function initFollow() {
             })
                 .then(res => {
                     console.log(res.data);
-                    function followMethod(e)  {
+                    followMethod = (e) => {
                         const type = e.target.getAttribute('data-type');
                         const shopId = e.target.getAttribute('data-shop-id');
                         const status = followingShop(shopId, user.uid, type);
