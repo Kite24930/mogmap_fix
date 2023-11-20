@@ -147,6 +147,95 @@
                     </div>
                 </div>
             </div>
+            <div id="December" class="flex flex-col w-full justify-center items-center bg-white rounded-lg border border-blue-900">
+                <p class="text-6xl font-bold ja-display-font">December</p>
+                <hr>
+                <div class="flex flex-col md:flex-row w-full justify-evenly items-center p-0 md:p-4">
+                    <div class="w-full md:w-1/2 p-4">
+                        <img src="{{ asset('storage/foods_bond/December.png') }}" alt="October" class="w-full rounded-lg">
+                        <p class="text-xs text-gray-400 md:hidden">長押しすると画像を保存できます</p>
+                    </div>
+                    <div class="flex flex-col justify-center items-center max-w-full md:max-w-[50%] p-4 gap-4">
+                        <div class="edu-center flex flex-col items-center p-4 bg-pink-200 border border-pink-400 rounded-lg w-full">
+                            <p class="text-xl font-bold mb-2">教職支援センター前</p>
+                            <div class="swiper flipSwiper max-w-full md:max-w-[350px]">
+                                <div class="swiper-wrapper w-full">
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(21)" targetDate="12/12(Tue)" appeal="ピタパンアイス🍨" />
+                                    </div>
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(17)" targetDate="12/14(Thu)" appeal="きゅうりタコス🥒" />
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                        <div class="sansui-hole flex flex-col items-center w-full p-4 bg-green-200 border border-green-400 rounded-lg">
+                            <p class="text-2xl font-bold mb-2">三翠ホール前</p>
+                            <div class="swiper flipSwiper max-w-full md:max-w-[350px]">
+                                <div class="swiper-wrapper w-full">
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.visiter-card shopName="petit kitchen" shopImg="petit_kitchen.JPG" instagram="petit.kitchen_" targetDate="12/12(Tue)" appeal="牛すじ煮込み🐮" />
+                                    </div>
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(38)" targetDate="12/14(Thu)" appeal="ピッツァ🍕" />
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="January" class="flex flex-col w-full justify-center items-center bg-white rounded-lg border border-blue-900">
+                <p class="text-6xl font-bold ja-display-font">January</p>
+                <p class="text-lg">1月で今年度のキッチンカー企画は終了となります！今年度もたくさんのご来場ありがとうございました！</p>
+                <hr>
+                <div class="flex flex-col md:flex-row w-full justify-evenly items-center p-0 md:p-4">
+                    <div class="w-full md:w-1/2 p-4">
+                        <img src="{{ asset('storage/foods_bond/January.png') }}" alt="October" class="w-full rounded-lg">
+                        <p class="text-xs text-gray-400 md:hidden">長押しすると画像を保存できます</p>
+                    </div>
+                    <div class="flex flex-col justify-center items-center max-w-full md:max-w-[50%] p-4 gap-4">
+                        <div class="edu-center flex flex-col items-center p-4 bg-pink-200 border border-pink-400 rounded-lg w-full">
+                            <p class="text-xl font-bold mb-2">教職支援センター前</p>
+                            <div class="swiper flipSwiper max-w-full md:max-w-[350px]">
+                                <div class="swiper-wrapper w-full">
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(31)" targetDate="1/23(Tue)" appeal="ソフトクリーム🍦" />
+                                    </div>
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(9)" targetDate="1/25(Thu)" appeal="佐世保バーガー🍔" />
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                        <div class="sansui-hole flex flex-col items-center w-full p-4 bg-green-200 border border-green-400 rounded-lg">
+                            <p class="text-2xl font-bold mb-2">三翠ホール前</p>
+                            <div class="swiper flipSwiper max-w-full md:max-w-[350px]">
+                                <div class="swiper-wrapper w-full">
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(18)" targetDate="1/23(Tue)" appeal="クレープ💐" />
+                                    </div>
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(53)" targetDate="1/25(Thu)" appeal="はちみつカステラ🍯" />
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     @vite(['resources/js/foods_bond.js'])
