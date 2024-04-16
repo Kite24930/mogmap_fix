@@ -248,7 +248,7 @@
                                         <x-foods_bond.shop-card :data="$shop_lists->find(36)" targetDate="4/16(Tue)" appeal="クレープ🐈" />
                                     </div>
                                     <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
-                                        <x-foods_bond.shop-card :data="$shop_lists->find(45)" targetDate="4/18(Thu)" appeal="ロコモコ&りんご飴🍎" />
+                                        <x-foods_bond.visiter-card shopName="小春や" shopImg="koharuya.JPG" instagram="ko_ha_ru_ya" targetDate="4/18(Thu)" appeal="わらび餅🍡" />
                                     </div>
                                 </div>
                                 <div class="swiper-button-next"></div>
