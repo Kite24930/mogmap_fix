@@ -275,7 +275,7 @@
                     </div>
                 </div>
             </div>
-            <div id="May" class="flex flex-col w-full justify-center items-center bg-white rounded-lg border border-blue-900">
+            <div id="May" class="hidden flex flex-col w-full justify-center items-center bg-white rounded-lg border border-blue-900">
                 <p class="text-6xl font-bold ja-display-font">May</p>
                 <div class="flex flex-col md:flex-row w-full justify-evenly items-center p-0 md:p-4">
                     <div class="flex flex-col md:flex-row justify-center items-center max-w-full md:max-w-[50%] p-4 gap-4">
