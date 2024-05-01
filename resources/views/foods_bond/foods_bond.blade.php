@@ -18,7 +18,7 @@
                     <p class="text-lg">三重大学 キッチンカー企画</p>
                     <p class="text-xl font-bold">Food's Bond 〜食がつなぐキズナ〜</p>
                     <p>2022年後期から始まった三重大学 キッチンカー企画！</p>
-                    <p>2024年も引き続き開催！毎月第1週火曜日・木曜日に教職支援センター前と三翠ホール前にキッチンカーがやってくる！！！</p>
+                    <p>2024年も引き続き開催！毎月第2週火曜日・木曜日に教職支援センター前と三翠ホール前にキッチンカーがやってくる！！！</p>
                 </div>
             </div>
         </div>
@@ -265,6 +265,45 @@
                                     </div>
                                     <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
                                         <x-foods_bond.visiter-card shopName="朱さん" shopImg="shusan.jpeg" instagram="red_foodtruck_shu" targetDate="4/18(Thu)" appeal="中国家庭料理🇨🇳" />
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="May" class="flex flex-col w-full justify-center items-center bg-white rounded-lg border border-blue-900">
+                <p class="text-6xl font-bold ja-display-font">May</p>
+                <div class="flex flex-col md:flex-row w-full justify-evenly items-center p-0 md:p-4">
+                    <div class="flex flex-col md:flex-row justify-center items-center max-w-full md:max-w-[50%] p-4 gap-4">
+                        <div class="edu-center flex flex-col items-center p-4 bg-pink-200 border border-pink-400 rounded-lg w-full">
+                            <p class="text-xl font-bold mb-2">教職支援センター前</p>
+                            <div class="swiper flipSwiper max-w-full md:max-w-[350px]">
+                                <div class="swiper-wrapper w-full">
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.visiter-card shopName="honey hug" shopImg="honey_hug.png" instagram="honey_hug.566" targetDate="5/7(Tue)" appeal="くまさんパフェ🍨" />
+                                    </div>
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(14)" targetDate="5/9(Thu)" appeal="コロッケ🥔" />
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                        <div class="sansui-hole flex flex-col items-center w-full p-4 bg-green-200 border border-green-400 rounded-lg">
+                            <p class="text-2xl font-bold mb-2">三翠ホール前</p>
+                            <div class="swiper flipSwiper max-w-full md:max-w-[350px]">
+                                <div class="swiper-wrapper w-full">
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.visiter-card shopName="明家キンパ" shopImg="myonga_kimpa.jpg" instagram="m.k_kimbap" targetDate="5/7(Tue)" appeal="韓国料理🇰🇷" />
+                                    </div>
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(45)" targetDate="5/9(Thu)" appeal="ロコモコ&りんご飴🍎" />
                                     </div>
                                 </div>
                                 <div class="swiper-button-next"></div>
