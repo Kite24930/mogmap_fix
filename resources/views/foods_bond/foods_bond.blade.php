@@ -365,7 +365,7 @@
                                         <x-foods_bond.visiter-card shopName="Nageia" shopImg="nageia.jpeg" instagram="nageia_trailer" targetDate="7/9(Tue)" appeal="モンブランソフト" />
                                     </div>
                                     <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
-                                        <x-foods_bond.visiter-card shopName="クッピーラムネカフェ" shopImg="kuppyramune.jpeg" instagram="kuppyramune.cafe" targetDate="7/11(Thu)" appeal="クッピーラムネ🥤" />
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(17)" targetDate="7/11(Thu)" appeal="きゅうりタコス🥒" />
                                     </div>
                                 </div>
                                 <div class="swiper-button-next"></div>
@@ -380,8 +380,11 @@
                                     <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
                                         <x-foods_bond.visiter-card shopName="Lbe" shopImg="Lbe.jpg" instagram="lbe_397" targetDate="7/9(Tue)" appeal="ホットドッグ🌭" />
                                     </div>
-                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
-                                        <x-foods_bond.shop-card :data="$shop_lists->find(17)" targetDate="7/11(Thu)" appeal="きゅうりタコス🥒" />
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900 relative">
+                                        <x-foods_bond.visiter-card shopName="クッピーラムネカフェ" shopImg="kuppyramune.jpeg" instagram="kuppyramune.cafe" targetDate="7/11(Thu)" appeal="クッピーラムネ🥤" />
+                                        <div class="absolute top-0 left-0 flex justify-center items-center w-full h-full z-10" style="background-color: rgba(0, 0, 0, 0.8)">
+                                            <p class="text-white text-2xl z-20 text-center">雨天のため<br>出店中止</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="swiper-button-next"></div>
