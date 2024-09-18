@@ -404,7 +404,7 @@
                             <div class="swiper flipSwiper max-w-full md:max-w-[350px]">
                                 <div class="swiper-wrapper w-full">
                                     <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
-                                        <x-foods_bond.visiter-card shopName="Mizuiro" shopImg="mizuiro.JPG" instagram="mizuiro.kitchencar" targetDate="10/8(Tue)" appeal="タピオカドリンク" />
+                                        <x-foods_bond.visiter-card shopName="水色キッチンカー" shopImg="mizuiro.JPG" instagram="mizuiro.kitchencar" targetDate="10/8(Tue)" appeal="タピオカドリンク" />
                                     </div>
                                     <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
                                         <x-foods_bond.shop-card :data="$shop_lists->find(19)" targetDate="10/10(Thu)" appeal="カラフルだんご🍡" />
