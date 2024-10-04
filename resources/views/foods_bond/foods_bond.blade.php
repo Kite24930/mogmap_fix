@@ -407,7 +407,7 @@
                                         <x-foods_bond.visiter-card shopName="水色キッチンカー" shopImg="mizuiro.JPG" instagram="mizuiro.kitchencar" targetDate="10/8(Tue)" appeal="タピオカドリンク" />
                                     </div>
                                     <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
-                                        <x-foods_bond.shop-card :data="$shop_lists->find(19)" targetDate="10/10(Thu)" appeal="カラフルだんご🍡" />
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(16)" targetDate="10/10(Thu)" appeal="大豆ミートからあげ🍗" />
                                     </div>
                                 </div>
                                 <div class="swiper-button-next"></div>
@@ -423,7 +423,10 @@
                                         <x-foods_bond.shop-card :data="$shop_lists->find(53)" targetDate="10/8(Tue)" appeal="はちみつカステラ🍯" />
                                     </div>
                                     <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900 relative">
-                                        <x-foods_bond.shop-card :data="$shop_lists->find(16)" targetDate="10/10(Thu)" appeal="大豆ミートからあげ🍗" />
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(19)" targetDate="10/10(Thu)" appeal="カラフルだんご🍡" />
+                                        <div class="absolute top-0 left-0 flex justify-center items-center w-full h-full z-10" style="background-color: rgba(0, 0, 0, 0.8)">
+                                            <p class="text-white text-2xl z-20 text-center">諸事情により<br>出店中止</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="swiper-button-next"></div>
