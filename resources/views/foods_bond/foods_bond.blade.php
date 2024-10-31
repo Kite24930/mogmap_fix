@@ -467,12 +467,11 @@
                                     <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
                                         <x-foods_bond.shop-card :data="$shop_lists->find(11)" targetDate="11/7(Thu)" appeal="カレー🍛とビビンバ🇰🇷" />
                                     </div>
-                                    </div>
                                 </div>
-                                <div class="swiper-button-next"></div>
-                                <div class="swiper-button-prev"></div>
-                                <div class="swiper-pagination"></div>
                             </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
                         </div>
                     </div>
                 </div>
