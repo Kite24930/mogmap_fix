@@ -18,7 +18,7 @@
                     <p class="text-lg">三重大学 キッチンカー企画</p>
                     <p class="text-xl font-bold">Food's Bond 〜食がつなぐキズナ〜</p>
                     <p>2022年後期から始まった三重大学 キッチンカー企画！</p>
-                    <p>2024年も引き続き開催！毎月第2週火曜日・木曜日に教職支援センター前と三翠ホール前にキッチンカーがやってくる！！！</p>
+                    <p>2025年も引き続き開催！毎月第2週火曜日・木曜日に教職支援センター前と三翠ホール前にキッチンカーがやってくる！！！</p>
                 </div>
             </div>
         </div>
@@ -476,7 +476,7 @@
                     </div>
                 </div>
             </div>
-            <div id="December" class="hidden flex flex-col w-full justify-center items-center bg-white rounded-lg border border-blue-900">
+            <div id="December" class="hidden flex-col w-full justify-center items-center bg-white rounded-lg border border-blue-900">
                 <p class="text-6xl font-bold ja-display-font">December</p>
                 <div class="flex flex-col md:flex-row w-full justify-evenly items-center p-0 md:p-4">
                     <div class="flex flex-col md:flex-row justify-center items-center max-w-full md:max-w-[50%] p-4 gap-4">
@@ -515,7 +515,7 @@
                     </div>
                 </div>
             </div>
-            <div id="January" class="flex flex-col w-full justify-center items-center bg-white rounded-lg border border-blue-900">
+            <div id="January" class="hidden flex-col w-full justify-center items-center bg-white rounded-lg border border-blue-900">
                 <p class="text-6xl font-bold ja-display-font">January</p>
                 <div class="flex flex-col md:flex-row w-full justify-evenly items-center p-0 md:p-4">
                     <div class="flex flex-col md:flex-row justify-center items-center max-w-full md:max-w-[50%] p-4 gap-4">
@@ -547,6 +547,45 @@
                                     </div>
                                     <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
                                         <x-foods_bond.shop-card :data="$shop_lists->find(53)" targetDate="1/9(Thu)" appeal="はちみつカステラ🍯" />
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="April" class="flex flex-col w-full justify-center items-center bg-white rounded-lg border border-blue-900">
+                <p class="text-6xl font-bold ja-display-font">April</p>
+                <div class="flex flex-col md:flex-row w-full justify-evenly items-center p-0 md:p-4">
+                    <div class="flex flex-col md:flex-row justify-center items-center max-w-full md:max-w-[50%] p-4 gap-4">
+                        <div class="edu-center flex flex-col items-center p-4 bg-pink-200 border border-pink-400 rounded-lg w-full">
+                            <p class="text-xl font-bold mb-2">教職支援センター前</p>
+                            <div class="swiper flipSwiper max-w-full md:max-w-[350px]">
+                                <div class="swiper-wrapper w-full">
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(19)" targetDate="4/15(Tue)" appeal="カラフル団子🍡" />
+                                    </div>
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.visiter-card shopName="クラッフェ" shopImg="kuraffe.JPG" instagram="kitchenkuraffe" targetDate="4/17(Thu)" appeal="だし巻きバーガー🥚" />
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                        <div class="sansui-hole flex flex-col items-center w-full p-4 bg-green-200 border border-green-400 rounded-lg">
+                            <p class="text-2xl font-bold mb-2">三翠ホール前</p>
+                            <div class="swiper flipSwiper max-w-full md:max-w-[350px]">
+                                <div class="swiper-wrapper w-full">
+                                    <div class="relative swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.visiter-card shopName="ノムズキッチン" shopImg="nomuzu.jpg" instagram="nomu.s_kitchen" targetDate="4/15(Tue)" appeal="ホットドッグ🌭" />
+                                    </div>
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.visiter-card shopName="小春や" shopImg="koharuya.JPG" instagram="ko_ha_ru_ya" targetDate="4/17(Thu)" appeal="和ツイーツ" />
                                     </div>
                                 </div>
                                 <div class="swiper-button-next"></div>
