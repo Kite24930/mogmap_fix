@@ -565,8 +565,11 @@
                             <p class="text-xl font-bold mb-2">教職支援センター前</p>
                             <div class="swiper flipSwiper max-w-full md:max-w-[350px]">
                                 <div class="swiper-wrapper w-full">
-                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                    <div class="relative swiper-slide p-4 bg-white rounded-lg border border-blue-900">
                                         <x-foods_bond.shop-card :data="$shop_lists->find(19)" targetDate="4/15(Tue)" appeal="カラフル団子🍡" />
+                                        <div class="absolute top-0 left-0 flex justify-center items-center w-full h-full z-10" style="background-color: rgba(0, 0, 0, 0.8)">
+                                            <p class="text-white text-2xl z-20 text-center">強風予報のため<br>出店中止</p>
+                                        </div>
                                     </div>
                                     <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
                                         <x-foods_bond.visiter-card shopName="クラッフェ" shopImg="kuraffe.JPG" instagram="kitchenkuraffe" targetDate="4/17(Thu)" appeal="だし巻きバーガー🥚" />
