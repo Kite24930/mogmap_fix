@@ -628,6 +628,9 @@
                                     </div>
                                     <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
                                         <x-foods_bond.shop-card :data="$shop_lists->find(16)" targetDate="5/15(Thu)" appeal="大豆ミートからあげ🍗" />
+                                        <div class="absolute top-0 left-0 flex justify-center items-center w-full h-full z-10" style="background-color: rgba(0, 0, 0, 0.8)">
+                                            <p class="text-white text-2xl z-20 text-center">諸事情により<br>出店中止</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="swiper-button-next"></div>
