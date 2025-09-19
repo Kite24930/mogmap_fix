@@ -680,7 +680,7 @@
                     </div>
                 </div>
             </div>
-            <div id="July" class="flex flex-col w-full justify-center items-center bg-white rounded-lg border border-blue-900">
+            <div id="July" class="hidden flex-col w-full justify-center items-center bg-white rounded-lg border border-blue-900">
                 <p class="text-6xl font-bold ja-display-font">July</p>
                 <div class="flex flex-col md:flex-row w-full justify-evenly items-center p-0 md:p-4">
                     <div class="flex flex-col md:flex-row justify-center items-center max-w-full md:max-w-[50%] p-4 gap-4">
@@ -709,6 +709,45 @@
                                     </div>
                                     <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
                                         <x-foods_bond.visiter-card shopName="Nano." shopImg="nano.JPG" instagram="n.ano_cafe_kc" targetDate="7/10(Thu)" appeal="からあげ🍗&ソフトクリーム🍦" />
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="October" class="flex flex-col w-full justify-center items-center bg-white rounded-lg border border-blue-900">
+                <p class="text-6xl font-bold ja-display-font">July</p>
+                <div class="flex flex-col md:flex-row w-full justify-evenly items-center p-0 md:p-4">
+                    <div class="flex flex-col md:flex-row justify-center items-center max-w-full md:max-w-[50%] p-4 gap-4">
+                        <div class="edu-center flex flex-col items-center p-4 bg-pink-200 border border-pink-400 rounded-lg w-full">
+                            <p class="text-xl font-bold mb-2">教職支援センター前</p>
+                            <div class="swiper flipSwiper max-w-full md:max-w-[350px]">
+                                <div class="swiper-wrapper w-full">
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(18)" targetDate="10/7(Tue)" appeal="花束みたいなクレープ💐" />
+                                    </div>
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(14)" targetDate="10/9(Thu)" appeal="コロッケ🥔" />
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                        <div class="sansui-hole flex flex-col items-center w-full p-4 bg-green-200 border border-green-400 rounded-lg">
+                            <p class="text-2xl font-bold mb-2">三翠ホール前</p>
+                            <div class="swiper flipSwiper max-w-full md:max-w-[350px]">
+                                <div class="swiper-wrapper w-full">
+                                    <div class="swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.visiter-card shopName="Nano." shopImg="nano.JPG" instagram="n.ano_cafe_kc" targetDate="10/7(Tue)" appeal="からあげ🍗&ソフトクリーム🍦" />
+                                    </div>
+                                    <div class="relative swiper-slide p-4 bg-white rounded-lg border border-blue-900">
+                                        <x-foods_bond.shop-card :data="$shop_lists->find(9)" targetDate="10/9(Thu)" appeal="佐世保バーガー🍔" />
                                     </div>
                                 </div>
                                 <div class="swiper-button-next"></div>
